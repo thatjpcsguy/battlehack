@@ -76,10 +76,10 @@
 {
     [super viewDidLoad];//39 217 178
     
-    /*
+    
     UIImage* tabBarBackground = [UIImage imageNamed:@"tabbar_background@2x.png"];
     [[UITabBar appearance] setBackgroundImage:tabBarBackground];
-   
+   /*
     [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
                                                        [UIColor whiteColor], NSForegroundColorAttributeName,
                                                        nil] forState:UIControlStateNormal];

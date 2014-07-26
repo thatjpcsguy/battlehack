@@ -35,7 +35,6 @@
 }
 
 +(void)imageFetcher:(NSString *)query withCompletionhandler:(ImageCompletionBlock)block {
-    NSLog(@"%@",query);
     query = [query stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSURL *url = [NSURL URLWithString:query];
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60];
