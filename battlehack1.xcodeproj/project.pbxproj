@@ -406,6 +406,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				611765F11983652B00966423 /* BHPostFormViewController.h in Sources */,
+				611765F21983652C00966423 /* BHPostFormViewController.m in Sources */,
 				3A8BAB0B19835C5600D5A6C3 /* UIProgressView+AFNetworking.m in Sources */,
 				3A8BAB0919835C5600D5A6C3 /* UIButton+AFNetworking.m in Sources */,
 				3A8BAB0C19835C5600D5A6C3 /* UIRefreshControl+AFNetworking.m in Sources */,
