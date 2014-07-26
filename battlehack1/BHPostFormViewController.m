@@ -30,8 +30,20 @@
     singleTap.numberOfTapsRequired = 1;
     self.listingImageView.userInteractionEnabled = YES;
     [self.listingImageView addGestureRecognizer:singleTap];
-
-    // Do any additional setup after loading the view.
+    
+    //Creating a number tool bar accessory view
+    UIToolbar* numberToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
+    numberToolbar.barStyle = UIBarStyleDefault;
+    numberToolbar.items = [NSArray arrayWithObjects:
+                           [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+                           [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(doneWithNumberPad)],
+                           nil];
+    [numberToolbar sizeToFit];
+    self.priceTextField.inputAccessoryView = numberToolbar;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWasShown:)
+                                                 name:UIKeyboardDidShowNotification object:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -59,6 +71,7 @@
     [self galleryOrCameraChooser];
 }
 
+#pragma mark - Camera
 
 - (void)galleryOrCameraChooser{
     
@@ -129,5 +142,30 @@
     [picker dismissViewControllerAnimated:YES completion:NULL];
 }
 
+#pragma mark - TextFieldOptions
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    [self.scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
+    return YES;
+}
+
+- (BOOL)doneWithNumberPad{
+    [self.priceTextField resignFirstResponder];
+    [self.scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
+    return YES;
+}
+
+// Called when the UIKeyboardDidShowNotification is sent.
+- (void)keyboardWasShown:(NSNotification*)aNotification
+{
+    NSDictionary* info = [aNotification userInfo];
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    [self.scrollView setContentOffset:CGPointMake(0, kbSize.height) animated:YES];
+}
+//called when the text field is being edited
+- (IBAction)textFieldDidBeginEditing:(UITextField *)sender {
+    sender.delegate = self;
+}
 @end

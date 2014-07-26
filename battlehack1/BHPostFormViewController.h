@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BHPostFormViewController : UIViewController
+@interface BHPostFormViewController : UIViewController <UITextFieldDelegate>
 
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property (strong, nonatomic) IBOutlet UIImageView *listingImageView;
 @property (strong, nonatomic) IBOutlet UITextField *titleTextField;
