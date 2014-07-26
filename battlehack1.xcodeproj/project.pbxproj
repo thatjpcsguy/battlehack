@@ -27,6 +27,17 @@
 		3A8BAB0C19835C5600D5A6C3 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8BAAFA19835C5600D5A6C3 /* UIRefreshControl+AFNetworking.m */; };
 		3A8BAB0D19835C5600D5A6C3 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8BAAFC19835C5600D5A6C3 /* UIWebView+AFNetworking.m */; };
 		3A8BAB1319835E7200D5A6C3 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8BAB1219835E7200D5A6C3 /* NetworkManager.m */; };
+		3A8BAB161983649600D5A6C3 /* MyAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8BAB151983649600D5A6C3 /* MyAnnotation.m */; };
+		6130CD0219838BF6004DE417 /* BHListingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6130CD0119838BF6004DE417 /* BHListingViewController.m */; };
+		6130CD611983936A004DE417 /* libPayPalMobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6130CD5B1983936A004DE417 /* libPayPalMobile.a */; };
+		6130CD63198393AE004DE417 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6130CD62198393AE004DE417 /* AVFoundation.framework */; };
+		6130CD65198393C0004DE417 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6130CD64198393C0004DE417 /* MessageUI.framework */; };
+		6130CD67198393C9004DE417 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6130CD66198393C9004DE417 /* SystemConfiguration.framework */; };
+		613AB99C198377B100CBEA65 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 613AB968198377B000CBEA65 /* FacebookSDK.framework */; };
+		613AB99D198377B100CBEA65 /* FBAudienceNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 613AB96A198377B000CBEA65 /* FBAudienceNetwork.framework */; };
+		613AB99E198377B100CBEA65 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 613AB96B198377B000CBEA65 /* README.txt */; };
+		613AB9B5198377B100CBEA65 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 613AB99A198377B000CBEA65 /* LICENSE */; };
+		613AB9B6198377B100CBEA65 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 613AB99B198377B000CBEA65 /* README.txt */; };
 		3A8BAB171983687400D5A6C3 /* BHPostFormViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 61A831B819835A12008B0857 /* BHPostFormViewController.h */; };
 		3A8BAB181983687400D5A6C3 /* BHPostFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A831B919835A12008B0857 /* BHPostFormViewController.m */; };
 		3A8BAB191983880700D5A6C3 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 613AB968198377B000CBEA65 /* FacebookSDK.framework */; };
@@ -101,6 +112,19 @@
 		3A8BAAFC19835C5600D5A6C3 /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
 		3A8BAB1119835E7200D5A6C3 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		3A8BAB1219835E7200D5A6C3 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
+		3A8BAB141983649600D5A6C3 /* MyAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAnnotation.h; sourceTree = "<group>"; };
+		3A8BAB151983649600D5A6C3 /* MyAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAnnotation.m; sourceTree = "<group>"; };
+		6130CD0019838BF6004DE417 /* BHListingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHListingViewController.h; sourceTree = "<group>"; };
+		6130CD0119838BF6004DE417 /* BHListingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHListingViewController.m; sourceTree = "<group>"; };
+		6130CD5B1983936A004DE417 /* libPayPalMobile.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPayPalMobile.a; sourceTree = "<group>"; };
+		6130CD5C1983936A004DE417 /* PayPalConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalConfiguration.h; sourceTree = "<group>"; };
+		6130CD5D1983936A004DE417 /* PayPalFuturePaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalFuturePaymentViewController.h; sourceTree = "<group>"; };
+		6130CD5E1983936A004DE417 /* PayPalMobile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalMobile.h; sourceTree = "<group>"; };
+		6130CD5F1983936A004DE417 /* PayPalPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalPayment.h; sourceTree = "<group>"; };
+		6130CD601983936A004DE417 /* PayPalPaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalPaymentViewController.h; sourceTree = "<group>"; };
+		6130CD62198393AE004DE417 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		6130CD64198393C0004DE417 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		6130CD66198393C9004DE417 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		3A8BAB1C1983921000D5A6C3 /* BHAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHAnnotation.h; sourceTree = "<group>"; };
 		3A8BAB1D1983921000D5A6C3 /* BHAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHAnnotation.m; sourceTree = "<group>"; };
 		613AB968198377B000CBEA65 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
@@ -140,6 +164,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6130CD67198393C9004DE417 /* SystemConfiguration.framework in Frameworks */,
+				6130CD65198393C0004DE417 /* MessageUI.framework in Frameworks */,
 				3A8BAB1A1983881300D5A6C3 /* FBAudienceNetwork.framework in Frameworks */,
 				3A8BAB191983880700D5A6C3 /* FacebookSDK.framework in Frameworks */,
 				3A8BAAD619835A7400D5A6C3 /* CoreLocation.framework in Frameworks */,
@@ -148,6 +174,9 @@
 				61A8318319835484008B0857 /* CoreGraphics.framework in Frameworks */,
 				61A8318519835484008B0857 /* UIKit.framework in Frameworks */,
 				61A8318119835484008B0857 /* Foundation.framework in Frameworks */,
+				613AB99D198377B100CBEA65 /* FBAudienceNetwork.framework in Frameworks */,
+				6130CD611983936A004DE417 /* libPayPalMobile.a in Frameworks */,
+				613AB99C198377B100CBEA65 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
