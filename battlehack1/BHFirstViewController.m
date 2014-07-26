@@ -131,12 +131,12 @@
         aView.canShowCallout = YES;
        UIImage *image =  [UIImage imageNamed:@"pin.png"];
         aView.image = image;
-        aView.leftCalloutAccessoryView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-        // could put a rightCalloutAccessoryView here
+        //aView.leftCalloutAccessoryView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+          aView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
     }
     
     aView.annotation = annotation;
-    [(UIImageView *)aView.leftCalloutAccessoryView setImage:nil];
+    //[(UIImageView *)aView.leftCalloutAccessoryView setImage:nil];
     BHAnnotation *bhAnnotation = annotation;
 
    [NetworkManager imageFetcher:[bhAnnotation.photo objectForKey:@"thumbnail_url"] withCompletionhandler:^(BOOL sucess, UIImage *image){
@@ -176,17 +176,11 @@
     return aView;
 }
 
-- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)aView
-{
-    
-    
-    
-    
-}
+ 
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
-    //NSLog(@"callout accessory tapped for annotation %@", [view.annotation title]);
+    NSLog(@"callout accessory tapped for annotation %@", [view.annotation title]);
 }
 
 
