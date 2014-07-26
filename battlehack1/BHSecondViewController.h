@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BHSecondViewController : UIViewController
-
+@interface BHSecondViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSArray *tableData;
 @end

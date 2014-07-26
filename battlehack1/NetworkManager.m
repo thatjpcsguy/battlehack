@@ -8,13 +8,13 @@
 
 #import "NetworkManager.h"
 #import <CoreLocation/CoreLocation.h>
+#import "BHAppDelegate.h"
 
 @implementation NetworkManager
 
 
 +(void)getItems:(CLLocationCoordinate2D)location withURL:(int)distance withCompletionBlock:(ArrayCompletionBlock)block
 {
-    
     
     NSString *authinticateUrl = [NSString stringWithFormat:@"http://sellular.co/nearby/%f/%f/%d",location.latitude,location.longitude,distance];
     
@@ -26,7 +26,20 @@
         }
     }];
     
+}
+
++(void)getMyStuffwithCompletionBlock:(ArrayCompletionBlock)block{
+    BHAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    NSString *userid = [appDelegate.FBUser objectForKey:@"id"];
+    NSString *url = [@"http://sellular.co/fetch/" stringByAppendingString:userid];
     
+    [self jsonFetcher:url withCompletionBlock:^(BOOL sucess, NSDictionary *array) {
+        if (sucess) {
+            block(YES,[[array allValues] lastObject]);
+        }else{
+            block(NO,nil);
+        }
+    }];
 }
 
 +(UIImage *)getItemImagewithURL:(NSString *)url {

@@ -137,7 +137,7 @@
 		613AB99B198377B000CBEA65 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		613AB9BD1983791B00CBEA65 /* BHLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHLoginViewController.h; sourceTree = "<group>"; };
 		613AB9BE1983791B00CBEA65 /* BHLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHLoginViewController.m; sourceTree = "<group>"; };
-		61A8317D19835484008B0857 /* battlehack1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = battlehack1.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		61A8317D19835484008B0857 /* Sellular.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sellular.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61A8318019835484008B0857 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		61A8318219835484008B0857 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		61A8318419835484008B0857 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -334,7 +334,7 @@
 		61A8317E19835484008B0857 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				61A8317D19835484008B0857 /* battlehack1.app */,
+				61A8317D19835484008B0857 /* Sellular.app */,
 				61A831A119835484008B0857 /* battlehack1Tests.xctest */,
 			);
 			name = Products;
@@ -419,7 +419,7 @@
 			);
 			name = battlehack1;
 			productName = battlehack1;
-			productReference = 61A8317D19835484008B0857 /* battlehack1.app */;
+			productReference = 61A8317D19835484008B0857 /* Sellular.app */;
 			productType = "com.apple.product-type.application";
 		};
 		61A831A019835484008B0857 /* battlehack1Tests */ = {
@@ -672,7 +672,7 @@
 					"-lc++",
 					"-ObjC",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Sellular;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -699,7 +699,7 @@
 					"-lc++",
 					"-ObjC",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Sellular;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
