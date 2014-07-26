@@ -76,10 +76,10 @@
 {
     [super viewDidLoad];//39 217 178
     
-    /*
+    
     UIImage* tabBarBackground = [UIImage imageNamed:@"tabbar_background@2x.png"];
     [[UITabBar appearance] setBackgroundImage:tabBarBackground];
-   
+   /*
     [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
                                                        [UIColor whiteColor], NSForegroundColorAttributeName,
                                                        nil] forState:UIControlStateNormal];
@@ -131,12 +131,12 @@
         aView.canShowCallout = YES;
        UIImage *image =  [UIImage imageNamed:@"pin.png"];
         aView.image = image;
-        aView.leftCalloutAccessoryView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-        // could put a rightCalloutAccessoryView here
+        //aView.leftCalloutAccessoryView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+          aView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
     }
     
     aView.annotation = annotation;
-    [(UIImageView *)aView.leftCalloutAccessoryView setImage:nil];
+    //[(UIImageView *)aView.leftCalloutAccessoryView setImage:nil];
     BHAnnotation *bhAnnotation = annotation;
 /*
    [NetworkManager imageFetcher:[bhAnnotation.photo objectForKey:@"thumbnail_url"] withCompletionhandler:^(BOOL sucess, UIImage *image){
@@ -176,17 +176,18 @@
     return aView;
 }
 
-- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)aView
+- (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
 {
-    
-    
-    
+    NSLog(@"regionDidChangeAnimated");
+    [self getCurrentLocation];
     
 }
 
+ 
+
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
-    //NSLog(@"callout accessory tapped for annotation %@", [view.annotation title]);
+    NSLog(@"callout accessory tapped for annotation %@", [view.annotation title]);
 }
 
 
