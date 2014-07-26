@@ -48,7 +48,7 @@
                     <tabBarItem key="tabBarItem" title="" image="map_active.png" id="u1e-5L-l1D"/>
                     <connections>
                         <outlet property="mapView" destination="GWp-VK-ugf" id="72s-BR-HSA"/>
-                        <segue destination="wmD-Si-DFv" kind="push" identifier="individualitem" id="Rkh-KQ-Pcg"/>
+                        <segue destination="wmD-Si-DFv" kind="modal" identifier="individualitem" id="Rkh-KQ-Pcg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qh2-T1-AhA" sceneMemberID="firstResponder"/>
