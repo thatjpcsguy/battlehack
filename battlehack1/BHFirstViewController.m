@@ -10,17 +10,119 @@
 
 
 @interface BHFirstViewController ()
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (strong,nonatomic) CLLocationManager *locationManager;
+@property (strong,nonatomic) CLGeocoder *geocoder;
+@property (strong,nonatomic) CLPlacemark *placemark;
+@property (strong,nonatomic) NSString *trailingAddress;
+@property (strong,nonatomic) NSString *leadingAddress;
+
+
 
 @end
 
 @implementation BHFirstViewController
 #define METERS_PER_MILE 709.344
 
+-(CLLocationManager *)locationManager {
+    if (!_locationManager) {
+        _locationManager = [[CLLocationManager alloc] init];
+        
+    }
+    return _locationManager;
+}
+
+-(CLGeocoder *) geocoder {
+    if (!_geocoder) {
+        _geocoder = [[CLGeocoder alloc] init];
+    }
+    return  _geocoder;
+}
+
+
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+	[self getCurrentLocation];
 }
+
+- (void)getCurrentLocation {
+    
+    self.locationManager.delegate = self;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    [self.locationManager startUpdatingLocation];
+}
+
+#pragma mark - location manager delegate
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    NSLog(@"didFailWithError: %@", error);
+    UIAlertView *errorAlert = [[UIAlertView alloc]
+                               initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [errorAlert show];
+}
+
+- (void)locationManager:(CLLocationManager *)manager
+     didUpdateLocations:(NSArray *)locations {
+     CLLocation *location = [locations lastObject];
+    
+    [self.locationManager stopUpdatingLocation];
+    [self getAddress:location];
+    
+    
+    
+    
+}
+
+-(void)getAddress:(CLLocation *)location{
+    [self.geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
+        
+        if (error == nil && [placemarks count] > 0) {
+            self.placemark = [placemarks lastObject];
+            [self plotUserLocation];
+        } else {
+            NSLog(@"%@", error.debugDescription);
+        }
+    }];
+    
+}
+
+-(NSString *)getFirstAddress:(CLPlacemark *)placemark {
+    return [NSString stringWithFormat:@"%@ %@",placemark.subThoroughfare,placemark.thoroughfare];
+}
+
+
+-(void) plotUserLocation {
+    
+    for (id<MKAnnotation> annotation in _mapView.annotations) {
+        [_mapView removeAnnotation:annotation];
+    }
+    
+    self.trailingAddress = [NSString stringWithFormat:@"%@ %@ %@ %@",
+                            
+                            self.placemark.locality,
+                            self.placemark.administrativeArea,self.placemark.postalCode,
+                            self.placemark.country];
+    
+    
+     self.leadingAddress = [self getFirstAddress:self.placemark];
+    
+    
+    
+    
+    MKCoordinateRegion mapRegion = MKCoordinateRegionMakeWithDistance(self.placemark.location.coordinate, 0.5*METERS_PER_MILE, 0.5*METERS_PER_MILE);
+    [self.mapView setRegion:mapRegion];
+    
+    MyAnnotation *annotation = [[MyAnnotation alloc] initWithCoordinate:self.placemark.location.coordinate title:self.leadingAddress];
+    [self.mapView addAnnotation:annotation];
+    
+    [self.mapView selectAnnotation:annotation animated:YES];
+    
+    
+}
+
 
 - (void)didReceiveMemoryWarning
 {
