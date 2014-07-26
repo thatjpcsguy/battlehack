@@ -22,6 +22,7 @@
 		61A831A519835484008B0857 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61A8318419835484008B0857 /* UIKit.framework */; };
 		61A831AD19835484008B0857 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 61A831AB19835484008B0857 /* InfoPlist.strings */; };
 		61A831AF19835484008B0857 /* battlehack1Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A831AE19835484008B0857 /* battlehack1Tests.m */; };
+		61A831BA19835A12008B0857 /* BHPostFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A831B919835A12008B0857 /* BHPostFormViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,8 @@
 		61A831AA19835484008B0857 /* battlehack1Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "battlehack1Tests-Info.plist"; sourceTree = "<group>"; };
 		61A831AC19835484008B0857 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		61A831AE19835484008B0857 /* battlehack1Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = battlehack1Tests.m; sourceTree = "<group>"; };
+		61A831B819835A12008B0857 /* BHPostFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHPostFormViewController.h; sourceTree = "<group>"; };
+		61A831B919835A12008B0857 /* BHPostFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHPostFormViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +121,8 @@
 				61A8318F19835484008B0857 /* BHAppDelegate.h */,
 				61A8319019835484008B0857 /* BHAppDelegate.m */,
 				61A8319219835484008B0857 /* Main.storyboard */,
+				61A831B819835A12008B0857 /* BHPostFormViewController.h */,
+				61A831B919835A12008B0857 /* BHPostFormViewController.m */,
 				61A8319519835484008B0857 /* BHFirstViewController.h */,
 				61A8319619835484008B0857 /* BHFirstViewController.m */,
 				61A8319819835484008B0857 /* BHSecondViewController.h */,
@@ -255,6 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61A831BA19835A12008B0857 /* BHPostFormViewController.m in Sources */,
 				61A8319A19835484008B0857 /* BHSecondViewController.m in Sources */,
 				61A8319719835484008B0857 /* BHFirstViewController.m in Sources */,
 				61A8319119835484008B0857 /* BHAppDelegate.m in Sources */,
@@ -463,6 +469,7 @@
 				61A831B419835484008B0857 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		61A831B519835484008B0857 /* Build configuration list for PBXNativeTarget "battlehack1Tests" */ = {
 			isa = XCConfigurationList;
@@ -471,6 +478,7 @@
 				61A831B719835484008B0857 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
