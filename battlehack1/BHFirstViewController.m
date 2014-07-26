@@ -8,11 +8,13 @@
 
 #import "BHFirstViewController.h"
 
+
 @interface BHFirstViewController ()
 
 @end
 
 @implementation BHFirstViewController
+#define METERS_PER_MILE 709.344
 
 - (void)viewDidLoad
 {
