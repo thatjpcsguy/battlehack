@@ -77,13 +77,18 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    [[UITabBar appearance] setTintColor:[UIColor greenColor]];
+    [super viewDidLoad];//39 217 178
     UIImage* tabBarBackground = [UIImage imageNamed:@"tabbar_background@2x.png"];
     [[UITabBar appearance] setBackgroundImage:tabBarBackground];
-    
-    [[UITabBar appearance] setBarTintColor:[UIColor whiteColor]];
-    self.mapView.delegate = self;
+   
+    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                       [UIColor whiteColor], NSForegroundColorAttributeName,
+                                                       nil] forState:UIControlStateNormal];
+    UIColor *titleHighlightedColor = [UIColor colorWithRed:39/255.0 green:217/255.0 blue:178/255.0 alpha:1.0];
+    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                       titleHighlightedColor, NSForegroundColorAttributeName,
+                                                       nil] forState:UIControlStateHighlighted];
+self.mapView.delegate = self;
     [self getCurrentLocation];
     
 }
