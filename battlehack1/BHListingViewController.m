@@ -26,6 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [PayPalMobile preconnectWithEnvironment:PayPalEnvironmentNoNetwork];
     // Do any additional setup after loading the view.
 }
 
@@ -47,5 +48,79 @@
 */
 
 - (IBAction)buyButtonPressed:(id)sender {
+    [self pay];
 }
+
+#pragma mark - Paypal
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        _payPalConfiguration = [[PayPalConfiguration alloc] init];
+        
+        // See PayPalConfiguration.h for details and default values.
+        // Should you wish to change any of the values, you can do so here.
+        // For example, if you wish to accept PayPal but not payment card payments, then add:
+        _payPalConfiguration.acceptCreditCards = YES;
+    }
+    return self;
+}
+
+
+- (IBAction)pay {
+    
+    // Create a PayPalPayment
+    PayPalPayment *payment = [[PayPalPayment alloc] init];
+    
+    // Amount, currency, and description
+    payment.amount = [[NSDecimalNumber alloc] initWithString:self.priceUILabel.text];
+    payment.currencyCode = @"AUD";
+    payment.shortDescription = self.titleLabel.text;
+    
+    // Use the intent property to indicate that this is a "sale" payment,
+    // meaning combined Authorization + Capture. To perform Authorization only,
+    // and defer Capture to your server, use PayPalPaymentIntentAuthorize.
+    payment.intent = PayPalPaymentIntentSale;
+    
+    // Check whether payment is processable.
+    if (!payment.processable) {
+        // If, for example, the amount was negative or the shortDescription was empty, then
+        // this payment would not be processable. You would want to handle that here.
+    }
+    
+    PayPalPaymentViewController *paymentViewController;
+    paymentViewController = [[PayPalPaymentViewController alloc] initWithPayment:payment
+                                                                   configuration:self.payPalConfiguration
+                                                                        delegate:self];
+    
+    // Present the PayPalPaymentViewController.
+    [self presentViewController:paymentViewController animated:YES completion:nil];
+}
+
+#pragma mark - PayPalPaymentDelegate methods
+
+- (void)payPalPaymentViewController:(PayPalPaymentViewController *)paymentViewController
+                 didCompletePayment:(PayPalPayment *)completedPayment {
+    // Payment was processed successfully; send to server for verification and fulfillment.
+    [self verifyCompletedPayment:completedPayment];
+    
+    // Dismiss the PayPalPaymentViewController.
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)payPalPaymentDidCancel:(PayPalPaymentViewController *)paymentViewController {
+    // The payment was canceled; dismiss the PayPalPaymentViewController.
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)verifyCompletedPayment:(PayPalPayment *)completedPayment {
+    // Send the entire confirmation dictionary
+    NSData *confirmation = [NSJSONSerialization dataWithJSONObject:completedPayment.confirmation
+                                                           options:0
+                                                             error:nil];
+    
+    // Send confirmation to your server; your server should verify the proof of payment
+    // and give the user their goods or services. If the server is not reachable, save
+    // the confirmation and try again later.
+}
+
 @end
