@@ -79,6 +79,9 @@
 {
     [super viewDidLoad];
     [[UITabBar appearance] setTintColor:[UIColor greenColor]];
+    UIImage* tabBarBackground = [UIImage imageNamed:@"tabbar_background@2x.png"];
+    [[UITabBar appearance] setBackgroundImage:tabBarBackground];
+    
     [[UITabBar appearance] setBarTintColor:[UIColor whiteColor]];
     self.mapView.delegate = self;
     [self getCurrentLocation];

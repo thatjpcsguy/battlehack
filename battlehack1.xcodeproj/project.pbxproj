@@ -14,6 +14,7 @@
 		3A5B774D1983C34A009FC239 /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A5B774C1983C34A009FC239 /* pin.png */; };
 		3A5B77511983D556009FC239 /* add_pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A5B77501983D556009FC239 /* add_pin.png */; };
 		3A5B77571983DC96009FC239 /* map_active.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A5B77561983DC96009FC239 /* map_active.png */; };
+		3A5B77591983E25B009FC239 /* tabbar_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A5B77581983E25B009FC239 /* tabbar_background@2x.png */; };
 		3A8BAAD419835A6B00D5A6C3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A8BAAD319835A6B00D5A6C3 /* MapKit.framework */; };
 		3A8BAAD619835A7400D5A6C3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A8BAAD519835A7400D5A6C3 /* CoreLocation.framework */; };
 		3A8BAAFD19835C5600D5A6C3 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8BAAD919835C5600D5A6C3 /* AFHTTPRequestOperation.m */; };
@@ -80,6 +81,7 @@
 		3A5B774C1983C34A009FC239 /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin.png; sourceTree = "<group>"; };
 		3A5B77501983D556009FC239 /* add_pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_pin.png; sourceTree = "<group>"; };
 		3A5B77561983DC96009FC239 /* map_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_active.png; sourceTree = "<group>"; };
+		3A5B77581983E25B009FC239 /* tabbar_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_background@2x.png"; sourceTree = "<group>"; };
 		3A8BAAD319835A6B00D5A6C3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3A8BAAD519835A7400D5A6C3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		3A8BAAD819835C5600D5A6C3 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -359,6 +361,7 @@
 		61A8318719835484008B0857 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3A5B77581983E25B009FC239 /* tabbar_background@2x.png */,
 				61A8318819835484008B0857 /* battlehack1-Info.plist */,
 				61A8318919835484008B0857 /* InfoPlist.strings */,
 				3A5B77501983D556009FC239 /* add_pin.png */,
@@ -467,6 +470,7 @@
 			files = (
 				3A5B77511983D556009FC239 /* add_pin.png in Resources */,
 				61A8319C19835484008B0857 /* Images.xcassets in Resources */,
+				3A5B77591983E25B009FC239 /* tabbar_background@2x.png in Resources */,
 				3A5B77571983DC96009FC239 /* map_active.png in Resources */,
 				3A5B774D1983C34A009FC239 /* pin.png in Resources */,
 				61A8318B19835484008B0857 /* InfoPlist.strings in Resources */,
