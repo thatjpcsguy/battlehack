@@ -138,7 +138,7 @@
     aView.annotation = annotation;
     [(UIImageView *)aView.leftCalloutAccessoryView setImage:nil];
     BHAnnotation *bhAnnotation = annotation;
-
+/*
    [NetworkManager imageFetcher:[bhAnnotation.photo objectForKey:@"thumbnail_url"] withCompletionhandler:^(BOOL sucess, UIImage *image){
         if (sucess) {
            
@@ -172,7 +172,7 @@
         }
     }];
 
-    
+    */
     return aView;
 }
 
