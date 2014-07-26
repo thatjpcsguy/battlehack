@@ -111,7 +111,51 @@
                                                                                                                             
      
      
-  
++(BOOL)sendPostRequestTo:(NSString *)URL withData:(id)data withAsync:(BOOL)isAsync{
+    //Set up the post data
+    NSError *writeError = nil;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:data options:NSJSONWritingPrettyPrinted error:&writeError];
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    NSString *post = [@"data=" stringByAppendingString:jsonString];
+    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+    
+    //set up the url
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setURL:[NSURL URLWithString:URL]];
+    [request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
+    [request setHTTPShouldHandleCookies:NO];
+    [request setTimeoutInterval:30];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:postData];
+    NSURLResponse *response;
+    
+    if ( isAsync ){
+        NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+        [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
+         {
+             if ([data length] > 0 && error == nil) {
+                 NSLog(@"%@", response);
+             }
+         }];
+    } else {
+        NSError *error = nil;
+        [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
+        int responseStatusCode = [httpResponse statusCode];
+        if (responseStatusCode == 200) {
+            return TRUE;
+        } else {
+            NSLog(@"Not Status 200: %@", error);
+            return false;
+        }
+    }
+    
+    NSLog(@"%@", response);
+    return TRUE;
+};
 
     
 

@@ -61,6 +61,9 @@
 		61A831A519835484008B0857 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61A8318419835484008B0857 /* UIKit.framework */; };
 		61A831AD19835484008B0857 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 61A831AB19835484008B0857 /* InfoPlist.strings */; };
 		61A831AF19835484008B0857 /* battlehack1Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A831AE19835484008B0857 /* battlehack1Tests.m */; };
+		61FFC3461983E97700623D9F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A5B77461983BBC7009FC239 /* AVFoundation.framework */; };
+		61FFC3471983E97F00623D9F /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A5B77481983BBD2009FC239 /* MessageUI.framework */; };
+		61FFC3481983E98600623D9F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A5B774A1983BBE0009FC239 /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -170,9 +173,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A5B774B1983BBE0009FC239 /* SystemConfiguration.framework in Frameworks */,
-				3A5B77491983BBD2009FC239 /* MessageUI.framework in Frameworks */,
-				3A5B77471983BBC7009FC239 /* AVFoundation.framework in Frameworks */,
+				61FFC3481983E98600623D9F /* SystemConfiguration.framework in Frameworks */,
+				61FFC3471983E97F00623D9F /* MessageUI.framework in Frameworks */,
+				61FFC3461983E97700623D9F /* AVFoundation.framework in Frameworks */,
 				3A8BAB1A1983881300D5A6C3 /* FBAudienceNetwork.framework in Frameworks */,
 				3A8BAB191983880700D5A6C3 /* FacebookSDK.framework in Frameworks */,
 				3A8BAAD619835A7400D5A6C3 /* CoreLocation.framework in Frameworks */,

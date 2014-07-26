@@ -7,6 +7,8 @@
 //
 
 #import "BHPostFormViewController.h"
+#import "BHAppDelegate.h"
+#import "NetworkManager.h"
 
 @interface BHPostFormViewController ()
 
@@ -30,8 +32,32 @@
     singleTap.numberOfTapsRequired = 1;
     self.listingImageView.userInteractionEnabled = YES;
     [self.listingImageView addGestureRecognizer:singleTap];
+    
+    //Creating a number tool bar accessory view
+    UIToolbar* numberToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
+    numberToolbar.barStyle = UIBarStyleDefault;
+    numberToolbar.items = [NSArray arrayWithObjects:
+                           [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+                           [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(doneWithNumberPad)],
+                           nil];
+    [numberToolbar sizeToFit];
+    self.priceTextField.inputAccessoryView = numberToolbar;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWasShown:)
+                                                 name:UIKeyboardDidShowNotification object:nil];
+    
+    // Set up location manager
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    self.locationManager.distanceFilter = kCLDistanceFilterNone;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    [self.locationManager startUpdatingLocation];
+}
 
-    // Do any additional setup after loading the view.
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
+    self.longitude = [[NSNumber numberWithDouble:newLocation.coordinate.longitude] stringValue];
+    self.latitude = [[NSNumber numberWithDouble:newLocation.coordinate.latitude] stringValue];
 }
 
 - (void)didReceiveMemoryWarning
@@ -51,7 +77,25 @@
 }
 */
 
+
+//Sell now button pressed here
 - (IBAction)pressedPostButton:(id)sender {
+    NSMutableDictionary *dataObject = [[NSMutableDictionary alloc] init];
+    NSString *imageData = [UIImagePNGRepresentation(self.listingImageView.image) base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithLineFeed];
+    [dataObject setObject:imageData forKey:@"image_data"];
+    [dataObject setObject:self.titleTextField.text forKey:@"title_data"];
+    [dataObject setObject:self.priceTextField.text forKey:@"price"];
+    [dataObject setObject:self.descriptionTextField.text forKey:@"desc"];
+    [dataObject setObject:self.longitude forKey:@"long"];
+    [dataObject setObject:self.latitude forKey:@"lat"];
+    BHAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    [dataObject setObject:appDelegate.FBUser forKey:@"FBUser"];
+    NSLog(@"%@", dataObject);
+    [NetworkManager sendPostRequestTo:@"http://192.168.96.81:5000/listing" withData:dataObject withAsync:NO];
+}
+
+- (IBAction)pressedCancelButton:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void)addImageTap{
@@ -59,6 +103,7 @@
     [self galleryOrCameraChooser];
 }
 
+#pragma mark - Camera
 
 - (void)galleryOrCameraChooser{
     
@@ -126,8 +171,34 @@
     
     UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
     self.listingImageView.image = chosenImage;
+    self.listingImageView.contentMode = UIViewContentModeScaleAspectFit;
     [picker dismissViewControllerAnimated:YES completion:NULL];
 }
 
+#pragma mark - TextFieldOptions
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    [self.scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
+    return YES;
+}
+
+- (BOOL)doneWithNumberPad{
+    [self.priceTextField resignFirstResponder];
+    [self.scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
+    return YES;
+}
+
+// Called when the UIKeyboardDidShowNotification is sent.
+- (void)keyboardWasShown:(NSNotification*)aNotification
+{
+    NSDictionary* info = [aNotification userInfo];
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    [self.scrollView setContentOffset:CGPointMake(0, kbSize.height) animated:YES];
+}
+//called when the text field is being edited
+- (IBAction)textFieldDidBeginEditing:(UITextField *)sender {
+    sender.delegate = self;
+}
 @end
