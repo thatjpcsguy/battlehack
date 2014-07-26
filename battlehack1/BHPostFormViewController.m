@@ -46,4 +46,6 @@
 }
 */
 
+- (IBAction)pressedPostButton:(id)sender {
+}
 @end
