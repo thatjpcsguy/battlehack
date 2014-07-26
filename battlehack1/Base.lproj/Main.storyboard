@@ -284,6 +284,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="descriptionTextField" destination="IJ1-fb-MYu" id="MtV-g7-YhG"/>
                         <outlet property="listingImageView" destination="ZQq-1M-0cS" id="Lgu-Av-2jB"/>
                         <outlet property="priceTextField" destination="ssY-iC-es2" id="KZI-Gr-q8Q"/>
                         <outlet property="scrollView" destination="nMt-3e-FbG" id="RhM-4W-6KE"/>

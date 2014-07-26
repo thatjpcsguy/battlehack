@@ -7,6 +7,8 @@
 //
 
 #import "BHPostFormViewController.h"
+#import "BHAppDelegate.h"
+#import "NetworkManager.h"
 
 @interface BHPostFormViewController ()
 
@@ -63,7 +65,19 @@
 }
 */
 
+
+//Sell now button pressed here
 - (IBAction)pressedPostButton:(id)sender {
+    NSMutableDictionary *dataObject = [[NSMutableDictionary alloc] init];
+    NSString *imageData = [UIImagePNGRepresentation(self.listingImageView.image) base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithLineFeed];
+    [dataObject setObject:imageData forKey:@"image_data"];
+    [dataObject setObject:self.titleTextField.text forKey:@"title_data"];
+    [dataObject setObject:self.priceTextField.text forKey:@"price"];
+    [dataObject setObject:self.descriptionTextField.text forKey:@"desc"];
+    BHAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    [dataObject setObject:appDelegate.FBUser forKey:@"FBUser"];
+    NSLog(@"%@", dataObject);
+    [NetworkManager sendPostRequestTo:@"http://192.168.96.81:5000/listing" withData:dataObject withAsync:NO];
 }
 
 - (IBAction)pressedCancelButton:(id)sender {
@@ -143,6 +157,7 @@
     
     UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
     self.listingImageView.image = chosenImage;
+    self.listingImageView.contentMode = UIViewContentModeScaleAspectFit;
     [picker dismissViewControllerAnimated:YES completion:NULL];
 }
 
