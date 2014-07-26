@@ -48,10 +48,7 @@
     
     if (self.annotations) [self.mapView addAnnotations:self.annotations];
     
-    for (BHAnnotation *an in self.annotations) {
-        [self.mapView selectAnnotation:an animated:YES];
-
-    }
+    
     
     
 }
@@ -77,12 +74,24 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    [[UITabBar appearance] setTintColor:[UIColor greenColor]];
+    [super viewDidLoad];//39 217 178
+    
+    /*
     UIImage* tabBarBackground = [UIImage imageNamed:@"tabbar_background@2x.png"];
     [[UITabBar appearance] setBackgroundImage:tabBarBackground];
+   
+    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                       [UIColor whiteColor], NSForegroundColorAttributeName,
+                                                       nil] forState:UIControlStateNormal];
+    UIColor *titleHighlightedColor = [UIColor colorWithRed:39/255.0 green:217/255.0 blue:178/255.0 alpha:1.0];
+    [[UITabBar appearance] setSelectionIndicatorImage:[UIImage imageNamed:@"map_active.png"]];
+     
+     */
+    UIColor *titleHighlightedColor = [UIColor colorWithRed:39/255.0 green:217/255.0 blue:178/255.0 alpha:1.0];
     
-    [[UITabBar appearance] setBarTintColor:[UIColor whiteColor]];
+    [[UITabBar appearance] setTintColor: titleHighlightedColor];
+    [[UITabBar appearance] setBarTintColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"tabbar_background@2x.png"]]];
+
     self.mapView.delegate = self;
     [self getCurrentLocation];
     
@@ -102,6 +111,14 @@
     [self.locationManager startUpdatingLocation];
 }
 
+- (UIImage *)maskImage:(UIImage *)originalImage toPath:(UIBezierPath *)path {
+    UIGraphicsBeginImageContextWithOptions(originalImage.size, NO, 0);
+    [path addClip];
+    [originalImage drawAtPoint:CGPointZero];
+    UIImage *maskedImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return maskedImage;
+}
 
 
 #pragma mark - MKMapViewDelegate
@@ -122,11 +139,35 @@
     [(UIImageView *)aView.leftCalloutAccessoryView setImage:nil];
     BHAnnotation *bhAnnotation = annotation;
 
-   [NetworkManager imageFetcher:[bhAnnotation.photo objectForKey:@"image_url"] withCompletionhandler:^(BOOL sucess, UIImage *image){
+   [NetworkManager imageFetcher:[bhAnnotation.photo objectForKey:@"thumbnail_url"] withCompletionhandler:^(BOOL sucess, UIImage *image){
         if (sucess) {
-            UIImageView *im  = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-            im.image = image;
-            aView.image = im.image;
+           
+            UIImage *backgroundImage = [UIImage imageNamed:@"pin_ho.png"];
+           
+            UIBezierPath *circularPath = [UIBezierPath bezierPathWithArcCenter:CGPointMake(image.size.width/2, image.size.height/2)
+                                          
+                                                                        radius:14
+                                          
+                                                                    startAngle:0
+                                          
+                                                                      endAngle:360
+                                          
+                                                                     clockwise:YES];
+            UIImage *circledImage = [self maskImage:image toPath:circularPath];
+            
+            
+            UIGraphicsBeginImageContext(backgroundImage.size);
+            [backgroundImage drawInRect:CGRectMake(0, 0, backgroundImage.size.width, backgroundImage.size.height)];
+            //[circledImage drawInRect:CGRectMake(backgroundImage.size.width - circledImage.size.width, backgroundImage.size.height - circledImage.size.height, circledImage.size.width, circledImage.size.height)];
+            [circledImage drawInRect:CGRectMake(5, 5, circledImage.size.width, circledImage.size.height)];
+            
+            
+            UIImage *result = UIGraphicsGetImageFromCurrentImageContext();
+            UIGraphicsEndImageContext();
+            
+            
+            
+            aView.image = result;
             
         }
     }];

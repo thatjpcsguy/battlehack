@@ -8,13 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		3A5B77451983BB3C009FC239 /* libPayPalMobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A5B773F1983BB3C009FC239 /* libPayPalMobile.a */; };
-		3A5B77471983BBC7009FC239 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A5B77461983BBC7009FC239 /* AVFoundation.framework */; };
-		3A5B77491983BBD2009FC239 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A5B77481983BBD2009FC239 /* MessageUI.framework */; };
-		3A5B774B1983BBE0009FC239 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A5B774A1983BBE0009FC239 /* SystemConfiguration.framework */; };
 		3A5B774D1983C34A009FC239 /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A5B774C1983C34A009FC239 /* pin.png */; };
 		3A5B77511983D556009FC239 /* add_pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A5B77501983D556009FC239 /* add_pin.png */; };
 		3A5B77571983DC96009FC239 /* map_active.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A5B77561983DC96009FC239 /* map_active.png */; };
 		3A5B77591983E25B009FC239 /* tabbar_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A5B77581983E25B009FC239 /* tabbar_background@2x.png */; };
+		3A5B775A1983E93F009FC239 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A5B77481983BBD2009FC239 /* MessageUI.framework */; };
+		3A5B775B1983E94B009FC239 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A5B774A1983BBE0009FC239 /* SystemConfiguration.framework */; };
+		3A5B775C1983E959009FC239 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A5B77461983BBC7009FC239 /* AVFoundation.framework */; };
+		3A5B775F1983F4DD009FC239 /* BHListingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5B775E1983F4DD009FC239 /* BHListingViewController.m */; };
+		3A5B77611983F859009FC239 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A5B77601983F859009FC239 /* QuartzCore.framework */; };
+		3A5B7765198401F0009FC239 /* pin_holo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A5B7764198401F0009FC239 /* pin_holo.png */; };
 		3A8BAAD419835A6B00D5A6C3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A8BAAD319835A6B00D5A6C3 /* MapKit.framework */; };
 		3A8BAAD619835A7400D5A6C3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A8BAAD519835A7400D5A6C3 /* CoreLocation.framework */; };
 		3A8BAAFD19835C5600D5A6C3 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8BAAD919835C5600D5A6C3 /* AFHTTPRequestOperation.m */; };
@@ -35,23 +38,14 @@
 		3A8BAB0C19835C5600D5A6C3 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8BAAFA19835C5600D5A6C3 /* UIRefreshControl+AFNetworking.m */; };
 		3A8BAB0D19835C5600D5A6C3 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8BAAFC19835C5600D5A6C3 /* UIWebView+AFNetworking.m */; };
 		3A8BAB1319835E7200D5A6C3 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8BAB1219835E7200D5A6C3 /* NetworkManager.m */; };
-		3A8BAB161983649600D5A6C3 /* MyAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8BAB151983649600D5A6C3 /* MyAnnotation.m */; };
-		6130CD0219838BF6004DE417 /* BHListingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6130CD0119838BF6004DE417 /* BHListingViewController.m */; };
-		6130CD611983936A004DE417 /* libPayPalMobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6130CD5B1983936A004DE417 /* libPayPalMobile.a */; };
-		6130CD63198393AE004DE417 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6130CD62198393AE004DE417 /* AVFoundation.framework */; };
-		6130CD65198393C0004DE417 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6130CD64198393C0004DE417 /* MessageUI.framework */; };
-		6130CD67198393C9004DE417 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6130CD66198393C9004DE417 /* SystemConfiguration.framework */; };
-		613AB99C198377B100CBEA65 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 613AB968198377B000CBEA65 /* FacebookSDK.framework */; };
-		613AB99D198377B100CBEA65 /* FBAudienceNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 613AB96A198377B000CBEA65 /* FBAudienceNetwork.framework */; };
-		613AB99E198377B100CBEA65 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 613AB96B198377B000CBEA65 /* README.txt */; };
-		613AB9B5198377B100CBEA65 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 613AB99A198377B000CBEA65 /* LICENSE */; };
-		613AB9B6198377B100CBEA65 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 613AB99B198377B000CBEA65 /* README.txt */; };
 		3A8BAB171983687400D5A6C3 /* BHPostFormViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 61A831B819835A12008B0857 /* BHPostFormViewController.h */; };
 		3A8BAB181983687400D5A6C3 /* BHPostFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A831B919835A12008B0857 /* BHPostFormViewController.m */; };
 		3A8BAB191983880700D5A6C3 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 613AB968198377B000CBEA65 /* FacebookSDK.framework */; };
 		3A8BAB1A1983881300D5A6C3 /* FBAudienceNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 613AB96A198377B000CBEA65 /* FBAudienceNetwork.framework */; };
 		3A8BAB1B1983884300D5A6C3 /* BHLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 613AB9BE1983791B00CBEA65 /* BHLoginViewController.m */; };
 		3A8BAB1E1983921100D5A6C3 /* BHAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8BAB1D1983921000D5A6C3 /* BHAnnotation.m */; };
+		613AB99C198377B100CBEA65 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 613AB968198377B000CBEA65 /* FacebookSDK.framework */; };
+		613AB99D198377B100CBEA65 /* FBAudienceNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 613AB96A198377B000CBEA65 /* FBAudienceNetwork.framework */; };
 		61A8318119835484008B0857 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61A8318019835484008B0857 /* Foundation.framework */; };
 		61A8318319835484008B0857 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61A8318219835484008B0857 /* CoreGraphics.framework */; };
 		61A8318519835484008B0857 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61A8318419835484008B0857 /* UIKit.framework */; };
@@ -93,6 +87,10 @@
 		3A5B77501983D556009FC239 /* add_pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_pin.png; sourceTree = "<group>"; };
 		3A5B77561983DC96009FC239 /* map_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_active.png; sourceTree = "<group>"; };
 		3A5B77581983E25B009FC239 /* tabbar_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_background@2x.png"; sourceTree = "<group>"; };
+		3A5B775D1983F4DD009FC239 /* BHListingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHListingViewController.h; sourceTree = "<group>"; };
+		3A5B775E1983F4DD009FC239 /* BHListingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHListingViewController.m; sourceTree = "<group>"; };
+		3A5B77601983F859009FC239 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		3A5B7764198401F0009FC239 /* pin_holo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin_holo.png; sourceTree = "<group>"; };
 		3A8BAAD319835A6B00D5A6C3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3A8BAAD519835A7400D5A6C3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		3A8BAAD819835C5600D5A6C3 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -133,19 +131,6 @@
 		3A8BAAFC19835C5600D5A6C3 /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
 		3A8BAB1119835E7200D5A6C3 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		3A8BAB1219835E7200D5A6C3 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
-		3A8BAB141983649600D5A6C3 /* MyAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAnnotation.h; sourceTree = "<group>"; };
-		3A8BAB151983649600D5A6C3 /* MyAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAnnotation.m; sourceTree = "<group>"; };
-		6130CD0019838BF6004DE417 /* BHListingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHListingViewController.h; sourceTree = "<group>"; };
-		6130CD0119838BF6004DE417 /* BHListingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHListingViewController.m; sourceTree = "<group>"; };
-		6130CD5B1983936A004DE417 /* libPayPalMobile.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPayPalMobile.a; sourceTree = "<group>"; };
-		6130CD5C1983936A004DE417 /* PayPalConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalConfiguration.h; sourceTree = "<group>"; };
-		6130CD5D1983936A004DE417 /* PayPalFuturePaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalFuturePaymentViewController.h; sourceTree = "<group>"; };
-		6130CD5E1983936A004DE417 /* PayPalMobile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalMobile.h; sourceTree = "<group>"; };
-		6130CD5F1983936A004DE417 /* PayPalPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalPayment.h; sourceTree = "<group>"; };
-		6130CD601983936A004DE417 /* PayPalPaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalPaymentViewController.h; sourceTree = "<group>"; };
-		6130CD62198393AE004DE417 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		6130CD64198393C0004DE417 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		6130CD66198393C9004DE417 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		3A8BAB1C1983921000D5A6C3 /* BHAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHAnnotation.h; sourceTree = "<group>"; };
 		3A8BAB1D1983921000D5A6C3 /* BHAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHAnnotation.m; sourceTree = "<group>"; };
 		613AB968198377B000CBEA65 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
@@ -197,7 +182,6 @@
 				3A5B77451983BB3C009FC239 /* libPayPalMobile.a in Frameworks */,
 				61A8318119835484008B0857 /* Foundation.framework in Frameworks */,
 				613AB99D198377B100CBEA65 /* FBAudienceNetwork.framework in Frameworks */,
-				6130CD611983936A004DE417 /* libPayPalMobile.a in Frameworks */,
 				613AB99C198377B100CBEA65 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,6 +273,8 @@
 		3A8BAB1019835DFC00D5A6C3 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				3A5B775D1983F4DD009FC239 /* BHListingViewController.h */,
+				3A5B775E1983F4DD009FC239 /* BHListingViewController.m */,
 				61A831B819835A12008B0857 /* BHPostFormViewController.h */,
 				61A831B919835A12008B0857 /* BHPostFormViewController.m */,
 				61A8319519835484008B0857 /* BHFirstViewController.h */,
@@ -360,6 +346,7 @@
 		61A8317F19835484008B0857 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3A5B77601983F859009FC239 /* QuartzCore.framework */,
 				3A5B774A1983BBE0009FC239 /* SystemConfiguration.framework */,
 				3A5B77481983BBD2009FC239 /* MessageUI.framework */,
 				3A5B77461983BBC7009FC239 /* AVFoundation.framework */,
@@ -389,6 +376,7 @@
 			isa = PBXGroup;
 			children = (
 				3A5B77581983E25B009FC239 /* tabbar_background@2x.png */,
+				3A5B7764198401F0009FC239 /* pin_holo.png */,
 				61A8318819835484008B0857 /* battlehack1-Info.plist */,
 				61A8318919835484008B0857 /* InfoPlist.strings */,
 				3A5B77501983D556009FC239 /* add_pin.png */,
@@ -502,6 +490,7 @@
 				3A5B774D1983C34A009FC239 /* pin.png in Resources */,
 				61A8318B19835484008B0857 /* InfoPlist.strings in Resources */,
 				61A8319419835484008B0857 /* Main.storyboard in Resources */,
+				3A5B7765198401F0009FC239 /* pin_holo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,6 +517,7 @@
 				3A8BAB1E1983921100D5A6C3 /* BHAnnotation.m in Sources */,
 				3A8BAB0C19835C5600D5A6C3 /* UIRefreshControl+AFNetworking.m in Sources */,
 				3A8BAB0819835C5600D5A6C3 /* UIAlertView+AFNetworking.m in Sources */,
+				3A5B775F1983F4DD009FC239 /* BHListingViewController.m in Sources */,
 				61A8319A19835484008B0857 /* BHSecondViewController.m in Sources */,
 				3A8BAB0119835C5600D5A6C3 /* AFSecurityPolicy.m in Sources */,
 				61A8319719835484008B0857 /* BHFirstViewController.m in Sources */,
