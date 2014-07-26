@@ -47,6 +47,13 @@
     [self.mapView setRegion:mapRegion];
     
     if (self.annotations) [self.mapView addAnnotations:self.annotations];
+    
+    for (BHAnnotation *an in self.annotations) {
+        [self.mapView selectAnnotation:an animated:YES];
+
+    }
+    
+    
 }
 
 
@@ -71,6 +78,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[UITabBar appearance] setTintColor:[UIColor greenColor]];
+    UIImage* tabBarBackground = [UIImage imageNamed:@"tabbar_background@2x.png"];
+    [[UITabBar appearance] setBackgroundImage:tabBarBackground];
+    
+    [[UITabBar appearance] setBarTintColor:[UIColor whiteColor]];
     self.mapView.delegate = self;
     [self getCurrentLocation];
     
@@ -98,14 +110,27 @@
 {
     MKAnnotationView *aView = [mapView dequeueReusableAnnotationViewWithIdentifier:@"MapVC"];
     if (!aView) {
-        aView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"MapVC"];
+        aView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"MapVC"];
         aView.canShowCallout = YES;
+       UIImage *image =  [UIImage imageNamed:@"pin.png"];
+        aView.image = image;
         aView.leftCalloutAccessoryView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
         // could put a rightCalloutAccessoryView here
     }
     
     aView.annotation = annotation;
     [(UIImageView *)aView.leftCalloutAccessoryView setImage:nil];
+    BHAnnotation *bhAnnotation = annotation;
+
+   [NetworkManager imageFetcher:[bhAnnotation.photo objectForKey:@"image_url"] withCompletionhandler:^(BOOL sucess, UIImage *image){
+        if (sucess) {
+            UIImageView *im  = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+            im.image = image;
+            aView.image = im.image;
+            
+        }
+    }];
+
     
     return aView;
 }
@@ -113,13 +138,15 @@
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)aView
 {
     BHAnnotation *bhAnnotation = (BHAnnotation *)aView.annotation;
-    
+  /*
     [NetworkManager imageFetcher:[bhAnnotation.photo objectForKey:@"image_url"] withCompletionhandler:^(BOOL sucess, UIImage *image){
         if (sucess) {
             [(UIImageView *)aView.leftCalloutAccessoryView setImage:image];
             
         }
     }];
+   
+   */
     
     
     
