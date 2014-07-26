@@ -10,6 +10,7 @@
 
 @interface BHPostFormViewController : UIViewController
 
+
 @property (strong, nonatomic) IBOutlet UIImageView *listingImageView;
 @property (strong, nonatomic) IBOutlet UITextField *titleTextField;
 @property (strong, nonatomic) IBOutlet UITextView *descTextView;

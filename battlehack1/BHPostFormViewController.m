@@ -26,6 +26,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addImageTap)];
+    singleTap.numberOfTapsRequired = 1;
+    self.listingImageView.userInteractionEnabled = YES;
+    [self.listingImageView addGestureRecognizer:singleTap];
+
     // Do any additional setup after loading the view.
 }
 
@@ -48,4 +53,81 @@
 
 - (IBAction)pressedPostButton:(id)sender {
 }
+
+-(void)addImageTap{
+    NSLog(@"single Tap on imageview");
+    [self galleryOrCameraChooser];
+}
+
+
+- (void)galleryOrCameraChooser{
+    
+    UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:@"Select photo from:" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:
+                            @"Camera",
+                            @"Photo Gallery",
+                            nil];
+    popup.tag = 1;
+    [popup showInView:[UIApplication sharedApplication].keyWindow];
+}
+
+- (void)actionSheet:(UIActionSheet *)popup clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    switch (popup.tag) {
+        case 1: {
+            switch (buttonIndex) {
+                case 0:
+                    NSLog(@"CAMERA");
+                    [self takePhoto];
+                    break;
+                case 1:
+                    NSLog(@"PHOTO GALLERY");
+                    [self selectPhoto];
+                    break;
+                default:
+                    break;
+            }
+            break;
+        }
+        default:
+            break;
+    }
+}
+
+
+/* Take Photo */
+- (IBAction)takePhoto{
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    
+    [self presentViewController:picker animated:YES completion:NULL];
+}
+
+/* Selecting photo from picker */
+- (IBAction)selectPhoto{
+    
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    
+    [self presentViewController:picker animated:YES completion:NULL];
+}
+
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+    
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
+    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+    self.listingImageView.image = chosenImage;
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+}
+
+
 @end

@@ -27,6 +27,8 @@
 		3A8BAB0C19835C5600D5A6C3 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8BAAFA19835C5600D5A6C3 /* UIRefreshControl+AFNetworking.m */; };
 		3A8BAB0D19835C5600D5A6C3 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8BAAFC19835C5600D5A6C3 /* UIWebView+AFNetworking.m */; };
 		3A8BAB1319835E7200D5A6C3 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8BAB1219835E7200D5A6C3 /* NetworkManager.m */; };
+		611765F11983652B00966423 /* BHPostFormViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 61A831B819835A12008B0857 /* BHPostFormViewController.h */; };
+		611765F21983652C00966423 /* BHPostFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A831B919835A12008B0857 /* BHPostFormViewController.m */; };
 		61A8318119835484008B0857 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61A8318019835484008B0857 /* Foundation.framework */; };
 		61A8318319835484008B0857 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61A8318219835484008B0857 /* CoreGraphics.framework */; };
 		61A8318519835484008B0857 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61A8318419835484008B0857 /* UIKit.framework */; };
@@ -401,6 +403,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				611765F11983652B00966423 /* BHPostFormViewController.h in Sources */,
+				611765F21983652C00966423 /* BHPostFormViewController.m in Sources */,
 				3A8BAB0B19835C5600D5A6C3 /* UIProgressView+AFNetworking.m in Sources */,
 				3A8BAB0919835C5600D5A6C3 /* UIButton+AFNetworking.m in Sources */,
 				3A8BAB0C19835C5600D5A6C3 /* UIRefreshControl+AFNetworking.m in Sources */,
