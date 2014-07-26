@@ -143,6 +143,7 @@
 				3A8BAB1A1983881300D5A6C3 /* FBAudienceNetwork.framework in Frameworks */,
 				3A8BAB191983880700D5A6C3 /* FacebookSDK.framework in Frameworks */,
 				3A8BAAD619835A7400D5A6C3 /* CoreLocation.framework in Frameworks */,
+				6130CD63198393AE004DE417 /* AVFoundation.framework in Frameworks */,
 				3A8BAAD419835A6B00D5A6C3 /* MapKit.framework in Frameworks */,
 				61A8318319835484008B0857 /* CoreGraphics.framework in Frameworks */,
 				61A8318519835484008B0857 /* UIKit.framework in Frameworks */,
@@ -237,6 +238,8 @@
 		3A8BAB1019835DFC00D5A6C3 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				6130CD0019838BF6004DE417 /* BHListingViewController.h */,
+				6130CD0119838BF6004DE417 /* BHListingViewController.m */,
 				61A831B819835A12008B0857 /* BHPostFormViewController.h */,
 				61A831B919835A12008B0857 /* BHPostFormViewController.m */,
 				61A8319519835484008B0857 /* BHFirstViewController.h */,
@@ -247,6 +250,19 @@
 				613AB9BE1983791B00CBEA65 /* BHLoginViewController.m */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		6130CD5A1983936A004DE417 /* PayPalMobile */ = {
+			isa = PBXGroup;
+			children = (
+				6130CD5B1983936A004DE417 /* libPayPalMobile.a */,
+				6130CD5C1983936A004DE417 /* PayPalConfiguration.h */,
+				6130CD5D1983936A004DE417 /* PayPalFuturePaymentViewController.h */,
+				6130CD5E1983936A004DE417 /* PayPalMobile.h */,
+				6130CD5F1983936A004DE417 /* PayPalPayment.h */,
+				6130CD601983936A004DE417 /* PayPalPaymentViewController.h */,
+			);
+			path = PayPalMobile;
 			sourceTree = "<group>";
 		};
 		613AB967198377B000CBEA65 /* FacebookSDK */ = {
@@ -272,6 +288,7 @@
 		61A8317419835484008B0857 = {
 			isa = PBXGroup;
 			children = (
+				6130CD5A1983936A004DE417 /* PayPalMobile */,
 				613AB967198377B000CBEA65 /* FacebookSDK */,
 				3A8BAAD719835C5600D5A6C3 /* AFNetworking */,
 				3A8BAAEB19835C5600D5A6C3 /* UIKit+AFNetworking */,
@@ -294,6 +311,9 @@
 		61A8317F19835484008B0857 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6130CD66198393C9004DE417 /* SystemConfiguration.framework */,
+				6130CD64198393C0004DE417 /* MessageUI.framework */,
+				6130CD62198393AE004DE417 /* AVFoundation.framework */,
 				3A8BAAD519835A7400D5A6C3 /* CoreLocation.framework */,
 				3A8BAAD319835A6B00D5A6C3 /* MapKit.framework */,
 				61A8318019835484008B0857 /* Foundation.framework */,
@@ -464,6 +484,7 @@
 				3A8BAB1319835E7200D5A6C3 /* NetworkManager.m in Sources */,
 				3A8BAAFF19835C5600D5A6C3 /* AFHTTPSessionManager.m in Sources */,
 				3A8BAB0019835C5600D5A6C3 /* AFNetworkReachabilityManager.m in Sources */,
+				6130CD0219838BF6004DE417 /* BHListingViewController.m in Sources */,
 				3A8BAB0419835C5600D5A6C3 /* AFURLResponseSerialization.m in Sources */,
 				3A8BAB0D19835C5600D5A6C3 /* UIWebView+AFNetworking.m in Sources */,
 				3A8BAB0519835C5600D5A6C3 /* AFURLSessionManager.m in Sources */,
@@ -601,6 +622,15 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "battlehack1/battlehack1-Prefix.pch";
 				INFOPLIST_FILE = "battlehack1/battlehack1-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PayPal-iOS-SDK/PayPalMobile",
+					"$(PROJECT_DIR)/PayPalMobile",
+				);
+				OTHER_LDFLAGS = (
+					"-lc++",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -619,6 +649,15 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "battlehack1/battlehack1-Prefix.pch";
 				INFOPLIST_FILE = "battlehack1/battlehack1-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PayPal-iOS-SDK/PayPalMobile",
+					"$(PROJECT_DIR)/PayPalMobile",
+				);
+				OTHER_LDFLAGS = (
+					"-lc++",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

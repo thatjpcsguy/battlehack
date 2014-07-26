@@ -9,6 +9,8 @@
 #import "BHAppDelegate.h"
 #import <FacebookSDK/FacebookSDK.h>
 #import "AFNetworkActivityIndicatorManager.h"
+#define CLIENT_ID_FOR_PRODUCTION @"AXbHtBDkCYVYYxxT2BwYpcLKHKYqWEBZxYxZkCzi756YpAsLTlIjq2Up3Qzo"
+#define CLIENT_ID_FOR_SANDBOX @"AeO_pRAbzq2QIF5YJhrsjDVGmmjn7pxMxwnSvyNd-R00uxSzNIZ4mHHH0hgF"
 
 
 @implementation BHAppDelegate
@@ -18,6 +20,8 @@
     // Override point for customization after application launch.
     [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     [FBLoginView class];
+    [PayPalMobile initializeWithClientIdsForEnvironments:@{PayPalEnvironmentProduction : CLIENT_ID_FOR_PRODUCTION,
+                                                           PayPalEnvironmentSandbox : CLIENT_ID_FOR_SANDBOX}];
     return YES;
 }
 							
