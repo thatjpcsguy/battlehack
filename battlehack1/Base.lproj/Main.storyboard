@@ -204,7 +204,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="What's your item?" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vwd-4M-jIe">
                                 <rect key="frame" x="20" y="302" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="How much?" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ssY-iC-es2">
@@ -236,8 +236,11 @@
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VKT-w3-ie5">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" red="0.047058823530000002" green="0.83921568629999999" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
+                                </textAttributes>
                                 <items>
-                                    <navigationItem title="Title" id="NZ4-9x-G3f">
+                                    <navigationItem title="Sell Something" id="NZ4-9x-G3f">
                                         <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="cwE-DV-Ob6"/>
                                     </navigationItem>
                                 </items>
