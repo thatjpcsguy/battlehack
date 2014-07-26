@@ -91,7 +91,9 @@
     BHAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     [dataObject setObject:appDelegate.FBUser forKey:@"FBUser"];
     NSLog(@"%@", dataObject);
-    [NetworkManager sendPostRequestTo:@"http://192.168.96.81:5000/listing" withData:dataObject withAsync:NO];
+    if ([NetworkManager sendPostRequestTo:@"http://192.168.96.81:5000/listing" withData:dataObject withAsync:NO]){
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 - (IBAction)pressedCancelButton:(id)sender {
