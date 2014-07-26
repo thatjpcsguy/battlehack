@@ -7,12 +7,16 @@
 //
 
 #import "BHAppDelegate.h"
+#import "AFNetworkActivityIndicatorManager.h"
+
 
 @implementation BHAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+    
     return YES;
 }
 							
