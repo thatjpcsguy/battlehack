@@ -16,11 +16,11 @@
 {
     
     
-    NSString *authinticateUrl = [NSString stringWithFormat:@"http://192.168.96.81:5000/%f/%f/%d",location.latitude,location.longitude,distance];
+    NSString *authinticateUrl = [NSString stringWithFormat:@"http://192.168.96.81:5000/nearby/%f/%f/%d",location.latitude,location.longitude,distance];
     
-    [self jsonFetcher:authinticateUrl withCompletionBlock:^(BOOL sucess, NSArray *array) {
+    [self jsonFetcher:authinticateUrl withCompletionBlock:^(BOOL sucess, NSDictionary *array) {
         if (sucess) {
-            block(YES,array);
+            block(YES,[[array allValues] lastObject]);
         }else{
             block(NO,nil);
         }
@@ -31,7 +31,7 @@
 
 
 
-+(void)jsonFetcher:(NSString *)query   withCompletionBlock: (ArrayCompletionBlock)callback {
++(void)jsonFetcher:(NSString *)query   withCompletionBlock: (JSONCompletionBlock)callback {
   
     
     

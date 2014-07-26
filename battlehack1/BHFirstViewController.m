@@ -7,6 +7,7 @@
 //
 
 #import "BHFirstViewController.h"
+#import "NetworkManager.h"
 
 
 @interface BHFirstViewController ()
@@ -47,7 +48,7 @@
     [super viewDidLoad];
     self.mapView.delegate = self;
     [self getCurrentLocation];
-}
+    }
 
 - (void)viewDidUnload
 {
@@ -107,7 +108,12 @@
 - (void)locationManager:(CLLocationManager *)manager
      didUpdateLocations:(NSArray *)locations {
      CLLocation *location = [locations lastObject];
-    
+    [NetworkManager getItems:location.coordinate withURL:(int)METERS_PER_MILE withCompletionBlock:^(BOOL sucess, NSArray *array) {
+        if (sucess) {
+            NSLog(@"value %@",array);
+        }
+    }];
+
     [self.locationManager stopUpdatingLocation];
     [self getAddress:location];
     
