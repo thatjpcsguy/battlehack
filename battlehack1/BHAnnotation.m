@@ -26,7 +26,7 @@
 
 - (NSString *)subtitle
 {
-    return [self.photo valueForKeyPath: @"price"];
+    return [NSString stringWithFormat: @"$%@",[self.photo objectForKey: @"price"]] ;
 }
 
 - (CLLocationCoordinate2D)coordinate
