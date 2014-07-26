@@ -17,6 +17,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *priceTextField;
 - (IBAction)pressedPostButton:(id)sender;
 
+- (IBAction)pressedCancelButton:(id)sender;
 
 
 @end

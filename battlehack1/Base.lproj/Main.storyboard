@@ -259,7 +259,11 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem title="Sell Something" id="NZ4-9x-G3f">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="cwE-DV-Ob6"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="cwE-DV-Ob6">
+                                            <connections>
+                                                <action selector="pressedCancelButton:" destination="I2H-vx-Tr0" id="y9a-d1-Deb"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>

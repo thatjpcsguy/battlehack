@@ -66,6 +66,10 @@
 - (IBAction)pressedPostButton:(id)sender {
 }
 
+- (IBAction)pressedCancelButton:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 -(void)addImageTap{
     NSLog(@"single Tap on imageview");
     [self galleryOrCameraChooser];
