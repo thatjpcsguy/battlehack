@@ -43,6 +43,7 @@
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
                             user:(id<FBGraphUser>)user {
     NSLog(@"%@", user);
+    [self performSegueWithIdentifier: @"loggedInSegue" sender: self];
     // Save user into app delegate here
     // Perform segue here.
 }
