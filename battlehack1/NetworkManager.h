@@ -16,8 +16,7 @@ typedef void (^ArrayCompletionBlock) (BOOL sucess, NSArray *array);
 typedef void (^ImageCompletionBlock) (BOOL sucess, UIImage *image);
 
 +(void)getItems:(CLLocationCoordinate2D)location withURL:(int)distance withCompletionBlock:(ArrayCompletionBlock)block;
-+(UIImage *)getItemImagewithURL:(NSString *)url;
-
++(void)imageFetcher:(NSString *)url withCompletionhandler:(ImageCompletionBlock)block;
 
 
 

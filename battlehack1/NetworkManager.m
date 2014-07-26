@@ -34,6 +34,27 @@
     return data ? [UIImage imageWithData:data] : nil;
 }
 
++(void)imageFetcher:(NSString *)query withCompletionhandler:(ImageCompletionBlock)block {
+   
+    query = [query stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSURL *url = [NSURL URLWithString:query];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:200];
+    
+  
+    AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    requestOperation.responseSerializer = [AFImageResponseSerializer serializer];
+    [requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if (responseObject) {
+            block(YES,responseObject);
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        block(NO,nil);
+    }];
+    [requestOperation start];
+
+}
+
 
 
 +(void)jsonFetcher:(NSString *)query   withCompletionBlock: (JSONCompletionBlock)callback {

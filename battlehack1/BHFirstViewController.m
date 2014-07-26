@@ -62,7 +62,7 @@
 
 #pragma mark - MapViewControllerDelegate
 
- 
+
 
 
 
@@ -114,8 +114,15 @@
 {
     BHAnnotation *bhAnnotation = (BHAnnotation *)aView.annotation;
     
-    UIImage *image = [NetworkManager getItemImagewithURL:[bhAnnotation.photo objectForKey:@"image_url"]];
-    [(UIImageView *)aView.leftCalloutAccessoryView setImage:image];
+    [NetworkManager imageFetcher:[bhAnnotation.photo objectForKey:@"image_url"] withCompletionhandler:^(BOOL sucess, UIImage *image){
+        if (sucess) {
+            [(UIImageView *)aView.leftCalloutAccessoryView setImage:image];
+            
+        }
+    }];
+    
+    
+    
 }
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
@@ -135,7 +142,7 @@
 
 - (void)locationManager:(CLLocationManager *)manager
      didUpdateLocations:(NSArray *)locations {
-     self.location = [locations lastObject];
+    self.location = [locations lastObject];
     [NetworkManager getItems:self.location.coordinate withURL:(int)METERS_PER_MILE withCompletionBlock:^(BOOL sucess, NSArray *array) {
         if (sucess) {
             NSLog(@"value %@",array);
