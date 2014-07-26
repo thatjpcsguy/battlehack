@@ -7,19 +7,37 @@
 //
 
 #import "NetworkManager.h"
+#import <CoreLocation/CoreLocation.h>
 
 @implementation NetworkManager
 
-/*
 
-+(void)jsonFetcher:(NSString *)query returnTypeIsDictionary:(BOOL)isDictionary supressAlert:(BOOL)supress withCompletionBlock: (JSONCompletionBlock)callback {
++(void)getItems:(CLLocationCoordinate2D)location withURL:(int)distance withCompletionBlock:(ArrayCompletionBlock)block
+{
+    
+    
+    NSString *authinticateUrl = [NSString stringWithFormat:@"http://192.168.96.81:5000/%f/%f/%d",location.latitude,location.longitude,distance];
+    
+    [self jsonFetcher:authinticateUrl withCompletionBlock:^(BOOL sucess, NSArray *array) {
+        if (sucess) {
+            block(YES,array);
+        }else{
+            block(NO,nil);
+        }
+    }];
+    
+    
+}
+
+
+
++(void)jsonFetcher:(NSString *)query   withCompletionBlock: (ArrayCompletionBlock)callback {
   
     
     
     
     // 1
     query = [query stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    //NSLog(@"query %@",query);
     NSURL *url = [NSURL URLWithString:query];
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:200];
     
@@ -29,7 +47,7 @@
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         // 3
         if (responseObject) {
-            isDictionary?callback(YES,(NSDictionary *)responseObject):callback(YES,@{@"result":(NSArray *)responseObject});
+            callback(YES,responseObject);
             
         } else {
             
@@ -51,15 +69,13 @@
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
-        if (!supress) {
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:url.host
+             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:url.host
                                                                 message:[error localizedDescription]
                                                                delegate:nil
                                                       cancelButtonTitle:@"OK"
                                                       otherButtonTitles:nil];
             [alertView show];
-        }
-        callback(NO,nil);
+         callback(NO,nil);
     }];
     
     // 5
@@ -72,6 +88,6 @@
   
 
     
-}
-*/
+
+
 @end
