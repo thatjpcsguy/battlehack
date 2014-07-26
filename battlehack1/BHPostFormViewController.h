@@ -7,15 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface BHPostFormViewController : UIViewController
+@interface BHPostFormViewController : UIViewController <UITextFieldDelegate>
 
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 
+@property (strong, nonatomic) IBOutlet UITextField *descriptionTextField;
 @property (strong, nonatomic) IBOutlet UIImageView *listingImageView;
 @property (strong, nonatomic) IBOutlet UITextField *titleTextField;
 @property (strong, nonatomic) IBOutlet UITextField *priceTextField;
-- (IBAction)pressedPostButton:(id)sender;
 
+@property (strong, nonatomic) CLLocationManager *locationManager;
+@property (strong, nonatomic) NSString *longitude;
+@property (strong, nonatomic) NSString *latitude;
+
+- (IBAction)pressedPostButton:(id)sender;
+- (IBAction)pressedCancelButton:(id)sender;
 
 
 @end
