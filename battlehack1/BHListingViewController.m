@@ -66,7 +66,7 @@
 }
 
 
-- (IBAction)pay {
+- (void)pay {
     
     // Create a PayPalPayment
     PayPalPayment *payment = [[PayPalPayment alloc] init];
