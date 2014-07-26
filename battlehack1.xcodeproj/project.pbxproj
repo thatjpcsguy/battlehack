@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A8BAAD419835A6B00D5A6C3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A8BAAD319835A6B00D5A6C3 /* MapKit.framework */; };
+		3A8BAAD619835A7400D5A6C3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A8BAAD519835A7400D5A6C3 /* CoreLocation.framework */; };
 		61A8318119835484008B0857 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61A8318019835484008B0857 /* Foundation.framework */; };
 		61A8318319835484008B0857 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61A8318219835484008B0857 /* CoreGraphics.framework */; };
 		61A8318519835484008B0857 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61A8318419835484008B0857 /* UIKit.framework */; };
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3A8BAAD319835A6B00D5A6C3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		3A8BAAD519835A7400D5A6C3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		61A8317D19835484008B0857 /* battlehack1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = battlehack1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61A8318019835484008B0857 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		61A8318219835484008B0857 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -63,6 +67,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A8BAAD619835A7400D5A6C3 /* CoreLocation.framework in Frameworks */,
+				3A8BAAD419835A6B00D5A6C3 /* MapKit.framework in Frameworks */,
 				61A8318319835484008B0857 /* CoreGraphics.framework in Frameworks */,
 				61A8318519835484008B0857 /* UIKit.framework in Frameworks */,
 				61A8318119835484008B0857 /* Foundation.framework in Frameworks */,
@@ -104,6 +110,8 @@
 		61A8317F19835484008B0857 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3A8BAAD519835A7400D5A6C3 /* CoreLocation.framework */,
+				3A8BAAD319835A6B00D5A6C3 /* MapKit.framework */,
 				61A8318019835484008B0857 /* Foundation.framework */,
 				61A8318219835484008B0857 /* CoreGraphics.framework */,
 				61A8318419835484008B0857 /* UIKit.framework */,
@@ -463,6 +471,7 @@
 				61A831B419835484008B0857 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		61A831B519835484008B0857 /* Build configuration list for PBXNativeTarget "battlehack1Tests" */ = {
 			isa = XCConfigurationList;
@@ -471,6 +480,7 @@
 				61A831B719835484008B0857 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
