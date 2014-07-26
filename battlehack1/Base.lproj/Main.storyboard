@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="GWp-VK-ugf">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="GWp-VK-ugf">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
@@ -29,6 +29,12 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="GWp-VK-ugf" firstAttribute="leading" secondItem="2VE-Yg-loa" secondAttribute="leading" id="Ilt-EH-Iyy"/>
+                            <constraint firstAttribute="bottom" secondItem="GWp-VK-ugf" secondAttribute="bottom" id="Vdd-Yw-ARR"/>
+                            <constraint firstItem="GWp-VK-ugf" firstAttribute="top" secondItem="2VE-Yg-loa" secondAttribute="top" id="ipc-KX-akk"/>
+                            <constraint firstAttribute="trailing" secondItem="GWp-VK-ugf" secondAttribute="trailing" id="tly-rC-PHd"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="first" id="u1e-5L-l1D"/>
                     <connections>

@@ -9,8 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
-#import "MyAnnotation.h"
-
+ 
 @interface BHFirstViewController : UIViewController <MKMapViewDelegate,CLLocationManagerDelegate>
 @property (nonatomic, strong) NSArray *annotations;  
 @property (nonatomic,strong) NSArray *items;
