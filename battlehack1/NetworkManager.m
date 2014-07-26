@@ -16,7 +16,7 @@
 {
     
     
-    NSString *authinticateUrl = [NSString stringWithFormat:@"http://192.168.96.81:5000/nearby/%f/%f/%d",location.latitude,location.longitude,distance];
+    NSString *authinticateUrl = [NSString stringWithFormat:@"http://sellular.co/nearby/%f/%f/%d",location.latitude,location.longitude,distance];
     
     [self jsonFetcher:authinticateUrl withCompletionBlock:^(BOOL sucess, NSDictionary *array) {
         if (sucess) {

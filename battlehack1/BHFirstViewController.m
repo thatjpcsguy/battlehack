@@ -9,6 +9,7 @@
 #import "BHFirstViewController.h"
 #import "NetworkManager.h"
 #import "BHAnnotation.h"
+#import "BHListingViewController.h"
 
 
 @interface BHFirstViewController ()
@@ -79,19 +80,19 @@
     
     UIImage* tabBarBackground = [UIImage imageNamed:@"tabbar_background@2x.png"];
     [[UITabBar appearance] setBackgroundImage:tabBarBackground];
-   /*
-    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
-                                                       [UIColor whiteColor], NSForegroundColorAttributeName,
-                                                       nil] forState:UIControlStateNormal];
-    UIColor *titleHighlightedColor = [UIColor colorWithRed:39/255.0 green:217/255.0 blue:178/255.0 alpha:1.0];
-    [[UITabBar appearance] setSelectionIndicatorImage:[UIImage imageNamed:@"map_active.png"]];
+    /*
+     [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+     [UIColor whiteColor], NSForegroundColorAttributeName,
+     nil] forState:UIControlStateNormal];
+     UIColor *titleHighlightedColor = [UIColor colorWithRed:39/255.0 green:217/255.0 blue:178/255.0 alpha:1.0];
+     [[UITabBar appearance] setSelectionIndicatorImage:[UIImage imageNamed:@"map_active.png"]];
      
      */
     UIColor *titleHighlightedColor = [UIColor colorWithRed:39/255.0 green:217/255.0 blue:178/255.0 alpha:1.0];
     
     [[UITabBar appearance] setTintColor: titleHighlightedColor];
     [[UITabBar appearance] setBarTintColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"tabbar_background@2x.png"]]];
-
+    
     self.mapView.delegate = self;
     [self getCurrentLocation];
     
@@ -129,21 +130,21 @@
     if (!aView) {
         aView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"MapVC"];
         aView.canShowCallout = YES;
-       UIImage *image =  [UIImage imageNamed:@"pin.png"];
+        UIImage *image =  [UIImage imageNamed:@"pin.png"];
         aView.image = image;
         //aView.leftCalloutAccessoryView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-          aView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        aView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
     }
     
     aView.annotation = annotation;
     //[(UIImageView *)aView.leftCalloutAccessoryView setImage:nil];
     BHAnnotation *bhAnnotation = annotation;
-/*
-   [NetworkManager imageFetcher:[bhAnnotation.photo objectForKey:@"thumbnail_url"] withCompletionhandler:^(BOOL sucess, UIImage *image){
+    
+    [NetworkManager imageFetcher:[bhAnnotation.photo objectForKey:@"thumbnail_url"] withCompletionhandler:^(BOOL sucess, UIImage *image){
         if (sucess) {
-           
+            
             UIImage *backgroundImage = [UIImage imageNamed:@"pin_ho.png"];
-           
+            
             UIBezierPath *circularPath = [UIBezierPath bezierPathWithArcCenter:CGPointMake(image.size.width/2, image.size.height/2)
                                           
                                                                         radius:12.5
@@ -171,8 +172,8 @@
             
         }
     }];
-
-    */
+    
+    
     return aView;
 }
 
@@ -183,12 +184,40 @@
     
 }
 
- 
+
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
     NSLog(@"callout accessory tapped for annotation %@", [view.annotation title]);
+    [self performSegueWithIdentifier:@"individualitem" sender:view.annotation];
+    
 }
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([segue.identifier isEqualToString:@"individualitem"])
+    {
+        BHListingViewController *bhlist = segue.destinationViewController;
+        
+        BHAnnotation *bhAnnotation =sender;
+        
+        bhlist.priceUILabel.text = [[bhAnnotation.photo objectForKey:@"price"] stringValue];
+        
+        bhlist.titleLabel.text = [bhAnnotation.photo objectForKey:@"title"];
+        bhlist.descriptionLabel.text= [bhAnnotation.photo objectForKey:@"description"];
+        [NetworkManager imageFetcher:[bhAnnotation.photo objectForKey:@"image_url"] withCompletionhandler:^(BOOL sucess, UIImage *image){
+            if (sucess) {
+                bhlist.listingImageView.image = image;
+                
+                
+            }
+        }];
+        
+    }
+    
+}
+
+
+
 
 
 #pragma mark - location manager delegate

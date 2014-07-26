@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2l3-cd-9F8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2l3-cd-9F8">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -48,6 +48,7 @@
                     <tabBarItem key="tabBarItem" title="" image="map_active.png" id="u1e-5L-l1D"/>
                     <connections>
                         <outlet property="mapView" destination="GWp-VK-ugf" id="72s-BR-HSA"/>
+                        <segue destination="wmD-Si-DFv" kind="push" identifier="individualitem" id="Rkh-KQ-Pcg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qh2-T1-AhA" sceneMemberID="firstResponder"/>
@@ -131,6 +132,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="cAV-V8-zIE"/>
                     <connections>
                         <outlet property="backButtonPressed" destination="fNf-Nu-AP6" id="yYh-g3-22l"/>
                         <outlet property="buyButton" destination="fdm-Dn-9yJ" id="pyV-rg-lPo"/>
