@@ -17,7 +17,6 @@
 		3A5B775C1983E959009FC239 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A5B77461983BBC7009FC239 /* AVFoundation.framework */; };
 		3A5B775F1983F4DD009FC239 /* BHListingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5B775E1983F4DD009FC239 /* BHListingViewController.m */; };
 		3A5B77611983F859009FC239 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A5B77601983F859009FC239 /* QuartzCore.framework */; };
-		3A5B7765198401F0009FC239 /* pin_holo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A5B7764198401F0009FC239 /* pin_holo.png */; };
 		3A8BAAD419835A6B00D5A6C3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A8BAAD319835A6B00D5A6C3 /* MapKit.framework */; };
 		3A8BAAD619835A7400D5A6C3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A8BAAD519835A7400D5A6C3 /* CoreLocation.framework */; };
 		3A8BAAFD19835C5600D5A6C3 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8BAAD919835C5600D5A6C3 /* AFHTTPRequestOperation.m */; };
@@ -93,7 +92,6 @@
 		3A5B775D1983F4DD009FC239 /* BHListingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHListingViewController.h; sourceTree = "<group>"; };
 		3A5B775E1983F4DD009FC239 /* BHListingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHListingViewController.m; sourceTree = "<group>"; };
 		3A5B77601983F859009FC239 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		3A5B7764198401F0009FC239 /* pin_holo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin_holo.png; sourceTree = "<group>"; };
 		3A8BAAD319835A6B00D5A6C3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3A8BAAD519835A7400D5A6C3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		3A8BAAD819835C5600D5A6C3 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -379,7 +377,6 @@
 			isa = PBXGroup;
 			children = (
 				3A5B77581983E25B009FC239 /* tabbar_background@2x.png */,
-				3A5B7764198401F0009FC239 /* pin_holo.png */,
 				61A8318819835484008B0857 /* battlehack1-Info.plist */,
 				61A8318919835484008B0857 /* InfoPlist.strings */,
 				3A5B77501983D556009FC239 /* add_pin.png */,
@@ -493,7 +490,6 @@
 				3A5B774D1983C34A009FC239 /* pin.png in Resources */,
 				61A8318B19835484008B0857 /* InfoPlist.strings in Resources */,
 				61A8319419835484008B0857 /* Main.storyboard in Resources */,
-				3A5B7765198401F0009FC239 /* pin_holo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
