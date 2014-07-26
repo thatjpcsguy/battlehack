@@ -8,18 +8,13 @@
 
 #import "BHFirstViewController.h"
 #import "NetworkManager.h"
+#import "BHAnnotation.h"
 
 
 @interface BHFirstViewController ()
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong,nonatomic) CLLocationManager *locationManager;
-@property (strong,nonatomic) CLGeocoder *geocoder;
-@property (strong,nonatomic) CLPlacemark *placemark;
-@property (strong,nonatomic) NSString *trailingAddress;
-@property (strong,nonatomic) NSString *leadingAddress;
-
-
-
+@property (strong,nonatomic) CLLocation *location;
 @end
 
 @implementation BHFirstViewController
@@ -32,13 +27,43 @@
     }
     return _locationManager;
 }
-
--(CLGeocoder *) geocoder {
-    if (!_geocoder) {
-        _geocoder = [[CLGeocoder alloc] init];
+- (void)setItems:(NSArray *)items
+{
+    if (_items != items) {
+        _items = items;
+        self.annotations = [self mapAnnotations];
     }
-    return  _geocoder;
 }
+
+- (void)setAnnotations:(NSArray *)annotations
+{
+    _annotations = annotations;
+    [self updateMapView];
+}
+- (void)updateMapView
+{
+    if (self.mapView.annotations) [self.mapView removeAnnotations:self.mapView.annotations];
+    MKCoordinateRegion mapRegion = MKCoordinateRegionMakeWithDistance(self.location.coordinate, 0.5*METERS_PER_MILE, 0.5*METERS_PER_MILE);
+    [self.mapView setRegion:mapRegion];
+    
+    if (self.annotations) [self.mapView addAnnotations:self.annotations];
+}
+
+
+- (NSArray *)mapAnnotations
+{
+    NSMutableArray *annotations = [NSMutableArray arrayWithCapacity:[self.items count]];
+    for (NSDictionary *item in self.items) {
+        [annotations addObject:[BHAnnotation annotationForPhoto:item]];
+    }
+    return annotations;
+}
+
+
+#pragma mark - MapViewControllerDelegate
+
+ 
+
 
 
 
@@ -48,7 +73,8 @@
     [super viewDidLoad];
     self.mapView.delegate = self;
     [self getCurrentLocation];
-    }
+    
+}
 
 - (void)viewDidUnload
 {
@@ -86,7 +112,9 @@
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)aView
 {
-    UIImage *image = [self.delegate mapViewController:self imageForAnnotation:aView.annotation];
+    BHAnnotation *bhAnnotation = (BHAnnotation *)aView.annotation;
+    
+    UIImage *image = [NetworkManager getItemImagewithURL:[bhAnnotation.photo objectForKey:@"image_url"]];
     [(UIImageView *)aView.leftCalloutAccessoryView setImage:image];
 }
 
@@ -107,73 +135,25 @@
 
 - (void)locationManager:(CLLocationManager *)manager
      didUpdateLocations:(NSArray *)locations {
-     CLLocation *location = [locations lastObject];
-    [NetworkManager getItems:location.coordinate withURL:(int)METERS_PER_MILE withCompletionBlock:^(BOOL sucess, NSArray *array) {
+     self.location = [locations lastObject];
+    [NetworkManager getItems:self.location.coordinate withURL:(int)METERS_PER_MILE withCompletionBlock:^(BOOL sucess, NSArray *array) {
         if (sucess) {
             NSLog(@"value %@",array);
+            self.items = array;
         }
     }];
-
-    [self.locationManager stopUpdatingLocation];
-    [self getAddress:location];
     
-    
-    
-    
-}
-
--(void)getAddress:(CLLocation *)location{
-    [self.geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
+    if (self.location) {
+        [self.locationManager stopUpdatingLocation];
         
-        if (error == nil && [placemarks count] > 0) {
-            self.placemark = [placemarks lastObject];
-            [self plotUserLocation];
-        } else {
-            NSLog(@"%@", error.debugDescription);
-        }
-    }];
-    
-}
-
--(NSString *)getFirstAddress:(CLPlacemark *)placemark {
-    return [NSString stringWithFormat:@"%@ %@",placemark.subThoroughfare,placemark.thoroughfare];
-}
-
-
--(void) plotUserLocation {
-    
-    for (id<MKAnnotation> annotation in _mapView.annotations) {
-        [_mapView removeAnnotation:annotation];
     }
-    
-    self.trailingAddress = [NSString stringWithFormat:@"%@ %@ %@ %@",
-                            
-                            self.placemark.locality,
-                            self.placemark.administrativeArea,self.placemark.postalCode,
-                            self.placemark.country];
-    
-    
-     self.leadingAddress = [self getFirstAddress:self.placemark];
-    
-    
-    
-    
-    MKCoordinateRegion mapRegion = MKCoordinateRegionMakeWithDistance(self.placemark.location.coordinate, 0.5*METERS_PER_MILE, 0.5*METERS_PER_MILE);
-    [self.mapView setRegion:mapRegion];
-    
-    MyAnnotation *annotation = [[MyAnnotation alloc] initWithCoordinate:self.placemark.location.coordinate title:self.leadingAddress];
-    [self.mapView addAnnotation:annotation];
-    
-    [self.mapView selectAnnotation:annotation animated:YES];
-    
-    
 }
 
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
 }
 
 @end

@@ -29,6 +29,11 @@
     
 }
 
++(UIImage *)getItemImagewithURL:(NSString *)url {
+    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
+    return data ? [UIImage imageWithData:data] : nil;
+}
+
 
 
 +(void)jsonFetcher:(NSString *)query   withCompletionBlock: (JSONCompletionBlock)callback {
