@@ -45,6 +45,8 @@
 		61A831A519835484008B0857 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61A8318419835484008B0857 /* UIKit.framework */; };
 		61A831AD19835484008B0857 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 61A831AB19835484008B0857 /* InfoPlist.strings */; };
 		61A831AF19835484008B0857 /* battlehack1Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A831AE19835484008B0857 /* battlehack1Tests.m */; };
+		61D2714F19837CD7000A43E1 /* BHPostFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A831B919835A12008B0857 /* BHPostFormViewController.m */; };
+		61D2715019837E35000A43E1 /* BHLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 613AB9BE1983791B00CBEA65 /* BHLoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +102,13 @@
 		3A8BAB1219835E7200D5A6C3 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
 		3A8BAB141983649600D5A6C3 /* MyAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAnnotation.h; sourceTree = "<group>"; };
 		3A8BAB151983649600D5A6C3 /* MyAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAnnotation.m; sourceTree = "<group>"; };
+		613AB968198377B000CBEA65 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		613AB96A198377B000CBEA65 /* FBAudienceNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBAudienceNetwork.framework; sourceTree = "<group>"; };
+		613AB96B198377B000CBEA65 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		613AB99A198377B000CBEA65 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		613AB99B198377B000CBEA65 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		613AB9BD1983791B00CBEA65 /* BHLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHLoginViewController.h; sourceTree = "<group>"; };
+		613AB9BE1983791B00CBEA65 /* BHLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHLoginViewController.m; sourceTree = "<group>"; };
 		61A8317D19835484008B0857 /* battlehack1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = battlehack1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61A8318019835484008B0857 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		61A8318219835484008B0857 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -135,6 +144,8 @@
 				61A8318319835484008B0857 /* CoreGraphics.framework in Frameworks */,
 				61A8318519835484008B0857 /* UIKit.framework in Frameworks */,
 				61A8318119835484008B0857 /* Foundation.framework in Frameworks */,
+				613AB99D198377B100CBEA65 /* FBAudienceNetwork.framework in Frameworks */,
+				613AB99C198377B100CBEA65 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,13 +242,36 @@
 				61A8319619835484008B0857 /* BHFirstViewController.m */,
 				61A8319819835484008B0857 /* BHSecondViewController.h */,
 				61A8319919835484008B0857 /* BHSecondViewController.m */,
+				613AB9BD1983791B00CBEA65 /* BHLoginViewController.h */,
+				613AB9BE1983791B00CBEA65 /* BHLoginViewController.m */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		613AB967198377B000CBEA65 /* FacebookSDK */ = {
+			isa = PBXGroup;
+			children = (
+				613AB968198377B000CBEA65 /* FacebookSDK.framework */,
+				613AB969198377B000CBEA65 /* FBAudienceNetwork */,
+				613AB99A198377B000CBEA65 /* LICENSE */,
+				613AB99B198377B000CBEA65 /* README.txt */,
+			);
+			path = FacebookSDK;
+			sourceTree = "<group>";
+		};
+		613AB969198377B000CBEA65 /* FBAudienceNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				613AB96A198377B000CBEA65 /* FBAudienceNetwork.framework */,
+				613AB96B198377B000CBEA65 /* README.txt */,
+			);
+			path = FBAudienceNetwork;
 			sourceTree = "<group>";
 		};
 		61A8317419835484008B0857 = {
 			isa = PBXGroup;
 			children = (
+				613AB967198377B000CBEA65 /* FacebookSDK */,
 				3A8BAAD719835C5600D5A6C3 /* AFNetworking */,
 				3A8BAAEB19835C5600D5A6C3 /* UIKit+AFNetworking */,
 				61A8318619835484008B0857 /* battlehack1 */,
@@ -389,7 +423,10 @@
 			files = (
 				61A8319C19835484008B0857 /* Images.xcassets in Resources */,
 				61A8318B19835484008B0857 /* InfoPlist.strings in Resources */,
+				613AB99E198377B100CBEA65 /* README.txt in Resources */,
+				613AB9B5198377B100CBEA65 /* LICENSE in Resources */,
 				61A8319419835484008B0857 /* Main.storyboard in Resources */,
+				613AB9B6198377B100CBEA65 /* README.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -557,6 +594,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FacebookSDK",
+					"$(PROJECT_DIR)/FacebookSDK/FBAudienceNetwork",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "battlehack1/battlehack1-Prefix.pch";
 				INFOPLIST_FILE = "battlehack1/battlehack1-Info.plist";
@@ -570,6 +612,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FacebookSDK",
+					"$(PROJECT_DIR)/FacebookSDK/FBAudienceNetwork",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "battlehack1/battlehack1-Prefix.pch";
 				INFOPLIST_FILE = "battlehack1/battlehack1-Info.plist";
