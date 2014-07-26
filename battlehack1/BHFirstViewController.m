@@ -146,7 +146,7 @@
            
             UIBezierPath *circularPath = [UIBezierPath bezierPathWithArcCenter:CGPointMake(image.size.width/2, image.size.height/2)
                                           
-                                                                        radius:14
+                                                                        radius:12.5
                                           
                                                                     startAngle:0
                                           
@@ -159,7 +159,7 @@
             UIGraphicsBeginImageContext(backgroundImage.size);
             [backgroundImage drawInRect:CGRectMake(0, 0, backgroundImage.size.width, backgroundImage.size.height)];
             //[circledImage drawInRect:CGRectMake(backgroundImage.size.width - circledImage.size.width, backgroundImage.size.height - circledImage.size.height, circledImage.size.width, circledImage.size.height)];
-            [circledImage drawInRect:CGRectMake(5, 5, circledImage.size.width, circledImage.size.height)];
+            [circledImage drawInRect:CGRectMake(0, 0, circledImage.size.width, circledImage.size.height)];
             
             
             UIImage *result = UIGraphicsGetImageFromCurrentImageContext();
@@ -178,16 +178,7 @@
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)aView
 {
-    BHAnnotation *bhAnnotation = (BHAnnotation *)aView.annotation;
-  /*
-    [NetworkManager imageFetcher:[bhAnnotation.photo objectForKey:@"image_url"] withCompletionhandler:^(BOOL sucess, UIImage *image){
-        if (sucess) {
-            [(UIImageView *)aView.leftCalloutAccessoryView setImage:image];
-            
-        }
-    }];
-   
-   */
+    
     
     
     
@@ -195,7 +186,7 @@
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
-    NSLog(@"callout accessory tapped for annotation %@", [view.annotation title]);
+    //NSLog(@"callout accessory tapped for annotation %@", [view.annotation title]);
 }
 
 
