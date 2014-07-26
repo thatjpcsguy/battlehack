@@ -170,8 +170,8 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
     UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
-    self.listingImageView.image = chosenImage;
     self.listingImageView.contentMode = UIViewContentModeScaleAspectFit;
+    self.listingImageView.image = chosenImage;
     [picker dismissViewControllerAnimated:YES completion:NULL];
 }
 
