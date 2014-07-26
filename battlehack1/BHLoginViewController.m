@@ -7,6 +7,7 @@
 //
 
 #import "BHLoginViewController.h"
+#import "BHAppDelegate.h"
 
 @interface BHLoginViewController ()
 
@@ -43,16 +44,14 @@
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
                             user:(id<FBGraphUser>)user {
     NSLog(@"%@", user);
+    BHAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    appDelegate.FBUser = user; //Save this facebook user for later use.
     [self performSegueWithIdentifier: @"loggedInSegue" sender: self];
-    // Save user into app delegate here
-    // Perform segue here.
 }
 
 // Logged-in user experience
 - (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {
     NSLog(@"Logged in");
-    
-    
 }
 
 // Logged-out user experience
