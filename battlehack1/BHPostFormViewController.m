@@ -46,6 +46,18 @@
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWasShown:)
                                                  name:UIKeyboardDidShowNotification object:nil];
+    
+    // Set up location manager
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    self.locationManager.distanceFilter = kCLDistanceFilterNone;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    [self.locationManager startUpdatingLocation];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
+    self.longitude = [[NSNumber numberWithDouble:newLocation.coordinate.longitude] stringValue];
+    self.latitude = [[NSNumber numberWithDouble:newLocation.coordinate.latitude] stringValue];
 }
 
 - (void)didReceiveMemoryWarning
@@ -74,6 +86,8 @@
     [dataObject setObject:self.titleTextField.text forKey:@"title_data"];
     [dataObject setObject:self.priceTextField.text forKey:@"price"];
     [dataObject setObject:self.descriptionTextField.text forKey:@"desc"];
+    [dataObject setObject:self.longitude forKey:@"long"];
+    [dataObject setObject:self.latitude forKey:@"lat"];
     BHAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     [dataObject setObject:appDelegate.FBUser forKey:@"FBUser"];
     NSLog(@"%@", dataObject);
