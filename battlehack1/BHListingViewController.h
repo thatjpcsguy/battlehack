@@ -11,11 +11,13 @@
 
 @interface BHListingViewController : UIViewController<PayPalPaymentDelegate>
 @property (strong, nonatomic) IBOutlet UILabel *priceUILabel;
-@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
+@property (strong, nonatomic) IBOutlet UITextView *titleLabel;
+@property (strong, nonatomic) IBOutlet UITextView *descriptionLabel;
 @property (strong, nonatomic) IBOutlet UIButton *buyButton;
 @property (strong, nonatomic) IBOutlet UIImageView *listingImageView;
 
 // Paypal
 @property (nonatomic, strong, readwrite) PayPalConfiguration *payPalConfiguration;
+@property (strong, nonatomic) IBOutlet UIButton *backButtonPressed;
 - (IBAction)buyButtonPressed:(id)sender;
 @end
