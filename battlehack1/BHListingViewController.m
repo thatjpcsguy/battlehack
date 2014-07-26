@@ -27,7 +27,12 @@
 {
     [super viewDidLoad];
     [PayPalMobile preconnectWithEnvironment:PayPalEnvironmentNoNetwork];
-    // Do any additional setup after loading the view.
+    
+    self.priceUILabel.text = [[self.item objectForKey:@"price"] stringValue];
+    
+    self.titleLabel.text = [self.item objectForKey:@"title"];
+    self.descriptionLabel.text= [self.item objectForKey:@"description"];
+    
 }
 
 - (void)didReceiveMemoryWarning

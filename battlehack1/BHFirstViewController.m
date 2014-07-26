@@ -199,11 +199,8 @@
         BHListingViewController *bhlist = segue.destinationViewController;
         
         BHAnnotation *bhAnnotation =sender;
-        
-        bhlist.priceUILabel.text = [[bhAnnotation.photo objectForKey:@"price"] stringValue];
-        
-        bhlist.titleLabel.text = [bhAnnotation.photo objectForKey:@"title"];
-        bhlist.descriptionLabel.text= [bhAnnotation.photo objectForKey:@"description"];
+        NSLog(@"%@",bhAnnotation.photo);
+        bhlist.item =bhAnnotation.photo;
         [NetworkManager imageFetcher:[bhAnnotation.photo objectForKey:@"image_url"] withCompletionhandler:^(BOOL sucess, UIImage *image){
             if (sucess) {
                 bhlist.listingImageView.image = image;

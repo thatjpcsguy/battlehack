@@ -15,6 +15,7 @@
 @property (strong, nonatomic) IBOutlet UITextView *descriptionLabel;
 @property (strong, nonatomic) IBOutlet UIButton *buyButton;
 @property (strong, nonatomic) IBOutlet UIImageView *listingImageView;
+@property (strong,nonatomic) NSDictionary *item;
 
 // Paypal
 @property (nonatomic, strong, readwrite) PayPalConfiguration *payPalConfiguration;
