@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "61A8317C19835484008B0857"
-               BuildableName = "battlehack1.app"
+               BuildableName = "Sellular.app"
                BlueprintName = "battlehack1"
                ReferencedContainer = "container:battlehack1.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "61A8317C19835484008B0857"
-            BuildableName = "battlehack1.app"
+            BuildableName = "Sellular.app"
             BlueprintName = "battlehack1"
             ReferencedContainer = "container:battlehack1.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "61A8317C19835484008B0857"
-            BuildableName = "battlehack1.app"
+            BuildableName = "Sellular.app"
             BlueprintName = "battlehack1"
             ReferencedContainer = "container:battlehack1.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "61A8317C19835484008B0857"
-            BuildableName = "battlehack1.app"
+            BuildableName = "Sellular.app"
             BlueprintName = "battlehack1"
             ReferencedContainer = "container:battlehack1.xcodeproj">
          </BuildableReference>
