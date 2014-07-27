@@ -16,10 +16,13 @@
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong,nonatomic) CLLocationManager *locationManager;
 @property (strong,nonatomic) CLLocation *location;
+@property (nonatomic) BOOL isFirstTime;
 @end
 
 @implementation BHFirstViewController
 #define METERS_PER_MILE 709.344
+#define SCROLL_UPDATE_DISTANCE 80.00
+
 
 -(CLLocationManager *)locationManager {
     if (!_locationManager) {
@@ -44,8 +47,16 @@
 - (void)updateMapView
 {
     if (self.mapView.annotations) [self.mapView removeAnnotations:self.mapView.annotations];
+    if (self.isFirstTime) {
+        MKCoordinateRegion mapRegion = MKCoordinateRegionMakeWithDistance(self.mapView.centerCoordinate, 0.5*METERS_PER_MILE, 0.5*METERS_PER_MILE);
+        [self.mapView setRegion:mapRegion];
+        
+    }else {
     MKCoordinateRegion mapRegion = MKCoordinateRegionMakeWithDistance(self.location.coordinate, 0.5*METERS_PER_MILE, 0.5*METERS_PER_MILE);
-    [self.mapView setRegion:mapRegion];
+        [self.mapView setRegion:mapRegion];
+        self.isFirstTime = YES;
+        
+    }
     
     if (self.annotations) [self.mapView addAnnotations:self.annotations];
     
@@ -76,7 +87,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];//39 217 178
-    
+    NSLog(self.isFirstTime?@"Yes":@"No");
+    [[UITabBar appearance] setShadowImage:[[UIImage alloc] init]];
     
     UIImage* tabBarBackground = [UIImage imageNamed:@"tabbar_background@2x.png"];
     [[UITabBar appearance] setBackgroundImage:tabBarBackground];
@@ -180,7 +192,41 @@
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
 {
     NSLog(@"regionDidChangeAnimated");
-    [self getCurrentLocation];
+    
+    MKCoordinateRegion mapRegion;
+    // set the center of the map region to the now updated map view center
+    mapRegion.center = mapView.centerCoordinate;
+    
+    mapRegion.span.latitudeDelta = 0.3; // you likely don't need these... just kinda hacked this out
+    mapRegion.span.longitudeDelta = 0.3;
+    
+    // get the lat & lng of the map region
+    double lat = mapRegion.center.latitude;
+    double lng = mapRegion.center.longitude;
+    
+    // note: I have a variable I have saved called lastLocationCoordinate. It is of type
+    // CLLocationCoordinate2D and I initially set it in the didUpdateUserLocation
+    // delegate method. I also update it again when this function is called
+    // so I always have the last mapRegion center point to compare the present one with
+    CLLocation *before =  self.location;
+    CLLocation *now = [[CLLocation alloc] initWithLatitude:lat longitude:lng];
+    
+    CLLocationDistance distance = ([before distanceFromLocation:now]) * 0.000621371192;
+    
+    
+    NSLog(@"Scrolled distance: %@", [NSString stringWithFormat:@"%.02f", distance]);
+    
+    if( distance > SCROLL_UPDATE_DISTANCE )
+    {[NetworkManager getItems:self.mapView.centerCoordinate withURL:(int)METERS_PER_MILE withCompletionBlock:^(BOOL sucess, NSArray *array) {
+        if (sucess) {
+            NSLog(@"value %@",array);
+            self.items = array;
+        }
+    }]; }
+    
+    // resave the last location center for the next map move event
+    //lastLocationCoordinate.latitude = mapRegion.center.latitude;
+    //lastLocationCoordinate.longitude = mapRegion.center.longitude;
     
 }
 

@@ -114,7 +114,7 @@
                                         <color key="textColor" red="0.047058823530000002" green="0.83921568629999999" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" text="tv" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KVK-pG-W69">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" text="tv" translatesAutoresizingMaskIntoConstraints="NO" id="KVK-pG-W69">
                                         <rect key="frame" x="20" y="275" width="202" height="105"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
@@ -359,7 +359,7 @@
         <image name="add_image" width="128" height="75"/>
         <image name="add_pin.png" width="106" height="106"/>
         <image name="map_active.png" width="40" height="41"/>
-        <image name="second" width="30" height="30"/>
+        <image name="mystaff.png" width="40" height="42"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
