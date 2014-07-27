@@ -23,6 +23,14 @@
     return self;
 }
 
+-(void)setTitleLabel:(UITextView *)titleLabel{
+    _titleLabel=titleLabel;
+    CGRect frame = _titleLabel.frame;
+    frame.size.height = _titleLabel.contentSize.height;
+    _titleLabel.frame = frame;
+
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -122,6 +130,8 @@
     NSData *confirmation = [NSJSONSerialization dataWithJSONObject:completedPayment.confirmation
                                                            options:0
                                                              error:nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Congratulation" message:@"Your payment is prcessed sucessfully" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    [alert show];
     
     // Send confirmation to your server; your server should verify the proof of payment
     // and give the user their goods or services. If the server is not reachable, save
